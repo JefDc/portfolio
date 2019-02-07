@@ -1,41 +1,48 @@
-<!DOCTYPE html>
-
-<title>Portfolio index</title>
-
+{% extends 'admin/base.html.twig' %}
 {% block body %}
-    <h1>Portfolio index</h1>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-6 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Link</th>
+                    <th>Img</th>
+                    <th>Title</th>
+                    <th>SubTitle</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for portfolio in portfolios %}
+                <tr>
+                    <td>{{ portfolio.id }}</td>
+                    <td>{{ portfolio.link }}</td>
+                    <td>{{ portfolio.img }}</td>
+                    <td>{{ portfolio.title }}</td>
+                    <td>{{ portfolio.subTitle }}</td>
+                    <td>
+                        <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}">show</a>
+                        <a href="{{ path('portfolio_edit', {'id': portfolio.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{{ path('portfolio_new') }}">Create new</a>
+    </div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Link</th>
-                <th>Img</th>
-                <th>Title</th>
-                <th>SubTitle</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for portfolio in portfolios %}
-            <tr>
-                <td>{{ portfolio.id }}</td>
-                <td>{{ portfolio.link }}</td>
-                <td>{{ portfolio.img }}</td>
-                <td>{{ portfolio.title }}</td>
-                <td>{{ portfolio.subTitle }}</td>
-                <td>
-                    <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}">show</a>
-                    <a href="{{ path('portfolio_edit', {'id': portfolio.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('portfolio_new') }}">Create new</a>
 {% endblock %}

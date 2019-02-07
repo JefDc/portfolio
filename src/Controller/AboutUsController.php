@@ -74,7 +74,7 @@ class AboutUsController extends AbstractController
             ]);
         }
 
-        return $this->render('about_us/edit.html.twig', [
+        return $this->render('about_us/_form.html.twig', [
             'about_u' => $aboutU,
             'form' => $form->createView(),
         ]);

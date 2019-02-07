@@ -1,4 +1,49 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-6 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Intro</h4>
+                            {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nom</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(form.name) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Titre</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(form.title) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Sous titre</label>
+                                            <div class="col-sm-9">
+                                                {{ form_widget(form.subTitle) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn">{{ button_label|default('Save') }}</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

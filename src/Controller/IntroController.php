@@ -16,45 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class IntroController extends AbstractController
 {
     /**
-     * @Route("/", name="intro_index", methods={"GET"})
+     * @Route("/", name="intro_index", methods={"GET","POST"})
      */
     public function index(IntroRepository $introRepository): Response
     {
-        return $this->render('intro/base.html.twig', [
+
+        return $this->render('admin/intro/index.html.twig', [
             'intros' => $introRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="intro_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $intro = new Intro();
-        $form = $this->createForm(IntroType::class, $intro);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($intro);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('intro_index');
-        }
-
-        return $this->render('intro/new.html.twig', [
-            'intro' => $intro,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="intro_show", methods={"GET"})
-     */
-    public function show(Intro $intro): Response
-    {
-        return $this->render('intro/show.html.twig', [
-            'intro' => $intro,
         ]);
     }
 
@@ -74,23 +42,9 @@ class IntroController extends AbstractController
             ]);
         }
 
-        return $this->render('intro/edit.html.twig', [
+        return $this->render('admin/intro/_form.html.twig', [
             'intro' => $intro,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="intro_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Intro $intro): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$intro->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($intro);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('intro_index');
     }
 }

@@ -74,7 +74,7 @@ class ExtraController extends AbstractController
             ]);
         }
 
-        return $this->render('extra/edit.html.twig', [
+        return $this->render('extra/_form.html.twig', [
             'extra' => $extra,
             'form' => $form->createView(),
         ]);

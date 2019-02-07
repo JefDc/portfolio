@@ -1,39 +1,49 @@
-<!DOCTYPE html>
-
-<title>Intro index</title>
-
+{% extends 'admin/base.html.twig' %}
 {% block body %}
-    <h1>Intro index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>SubTitle</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for intro in intros %}
-            <tr>
-                <td>{{ intro.id }}</td>
-                <td>{{ intro.name }}</td>
-                <td>{{ intro.title }}</td>
-                <td>{{ intro.subTitle }}</td>
-                <td>
-                    <a href="{{ path('intro_show', {'id': intro.id}) }}">show</a>
-                    <a href="{{ path('intro_edit', {'id': intro.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('intro_new') }}">Create new</a>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-6 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Intro</h4>
+                            {% for intro in intros %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nom</label>
+                                            <div class="col-sm-9">
+                                                {{ intro.name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Titre</label>
+                                            <div class="col-sm-9">
+                                                {{ intro.title }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Sous titre</label>
+                                            <div class="col-sm-9">
+                                                {{ intro.subTitle }}
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                                <a href="{{ path('intro_edit', {'id' : intro.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

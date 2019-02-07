@@ -74,7 +74,7 @@ class SkillController extends AbstractController
             ]);
         }
 
-        return $this->render('skill/edit.html.twig', [
+        return $this->render('skill/_form.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
         ]);

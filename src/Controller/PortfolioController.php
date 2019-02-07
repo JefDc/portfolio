@@ -20,7 +20,7 @@ class PortfolioController extends AbstractController
      */
     public function index(PortfolioRepository $portfolioRepository): Response
     {
-        return $this->render('portfolio/base.html.twig', [
+        return $this->render('admin/portfolio/index.html.twig', [
             'portfolios' => $portfolioRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class PortfolioController extends AbstractController
             return $this->redirectToRoute('portfolio_index');
         }
 
-        return $this->render('portfolio/new.html.twig', [
+        return $this->render('admin/portfolio/new.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class PortfolioController extends AbstractController
      */
     public function show(Portfolio $portfolio): Response
     {
-        return $this->render('portfolio/show.html.twig', [
+        return $this->render('admin/portfolio/show.html.twig', [
             'portfolio' => $portfolio,
         ]);
     }
@@ -74,7 +74,7 @@ class PortfolioController extends AbstractController
             ]);
         }
 
-        return $this->render('portfolio/edit.html.twig', [
+        return $this->render('admin/portfolio/_form.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);

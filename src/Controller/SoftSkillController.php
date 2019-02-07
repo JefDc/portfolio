@@ -74,7 +74,7 @@ class SoftSkillController extends AbstractController
             ]);
         }
 
-        return $this->render('soft_skill/edit.html.twig', [
+        return $this->render('soft_skill/_form.html.twig', [
             'soft_skill' => $softSkill,
             'form' => $form->createView(),
         ]);
