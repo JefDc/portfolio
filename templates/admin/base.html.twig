@@ -14,9 +14,11 @@
 <body>
     <div class="container-scroller">
         {% include 'admin/navbar.html.twig' %}
-        {% include 'admin/sidebar.html.twig' %}
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container-fluid page-body-wrapper">
+            {% include 'admin/sidebar.html.twig' %}
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
+        </div>
     </div>
     <!-- plugins:js -->
     <script src="admin/js/vendor.bundle.base.js"></script>
@@ -29,7 +31,7 @@
     <script src="admin/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="js/dashboard.js"></script>
+    <script src="admin/js/dashboard.js"></script>
     <!-- End custom js for this page-->
 </body>
 </html>
