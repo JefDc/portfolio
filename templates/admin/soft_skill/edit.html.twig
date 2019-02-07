@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit SoftSkill</title>
+
+{% block body %}
+    <h1>Edit SoftSkill</h1>
+
+    {{ include('soft_skill/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('soft_skill_index') }}">back to list</a>
+
+    {{ include('soft_skill/_delete_form.html.twig') }}
+{% endblock %}

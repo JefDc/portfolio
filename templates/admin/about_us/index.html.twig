@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>AboutUs index</title>
+
+{% block body %}
+    <h1>AboutUs index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for about_u in aboutuses %}
+            <tr>
+                <td>{{ about_u.id }}</td>
+                <td>{{ about_u.title }}</td>
+                <td>{{ about_u.content }}</td>
+                <td>
+                    <a href="{{ path('about_us_show', {'id': about_u.id}) }}">show</a>
+                    <a href="{{ path('about_us_edit', {'id': about_u.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('about_us_new') }}">Create new</a>
+{% endblock %}

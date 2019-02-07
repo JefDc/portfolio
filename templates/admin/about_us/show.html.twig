@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>AboutUs</title>
+
+{% block body %}
+    <h1>AboutUs</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ about_u.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ about_u.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ about_u.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('about_us_index') }}">back to list</a>
+
+    <a href="{{ path('about_us_edit', {'id': about_u.id}) }}">edit</a>
+
+    {{ include('about_us/_delete_form.html.twig') }}
+{% endblock %}

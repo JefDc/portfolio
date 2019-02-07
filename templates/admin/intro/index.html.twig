@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<title>Intro index</title>
+
+{% block body %}
+    <h1>Intro index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>SubTitle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for intro in intros %}
+            <tr>
+                <td>{{ intro.id }}</td>
+                <td>{{ intro.name }}</td>
+                <td>{{ intro.title }}</td>
+                <td>{{ intro.subTitle }}</td>
+                <td>
+                    <a href="{{ path('intro_show', {'id': intro.id}) }}">show</a>
+                    <a href="{{ path('intro_edit', {'id': intro.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('intro_new') }}">Create new</a>
+{% endblock %}
