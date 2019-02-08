@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/contact")
+ * @Route("/admin//contact")
  */
 class ContactController extends AbstractController
 {
@@ -20,7 +20,7 @@ class ContactController extends AbstractController
      */
     public function index(ContactRepository $contactRepository): Response
     {
-        return $this->render('contact/base.html.twig', [
+        return $this->render('/admin/contact/index.html.twig', [
             'contacts' => $contactRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class ContactController extends AbstractController
             return $this->redirectToRoute('contact_index');
         }
 
-        return $this->render('contact/new.html.twig', [
+        return $this->render('/admin/contact/new.html.twig', [
             'contact' => $contact,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class ContactController extends AbstractController
      */
     public function show(Contact $contact): Response
     {
-        return $this->render('contact/show.html.twig', [
+        return $this->render('/admin/contact/show.html.twig', [
             'contact' => $contact,
         ]);
     }
@@ -74,7 +74,7 @@ class ContactController extends AbstractController
             ]);
         }
 
-        return $this->render('contact/_form.html.twig', [
+        return $this->render('/admin/contact/_form.html.twig', [
             'contact' => $contact,
             'form' => $form->createView(),
         ]);

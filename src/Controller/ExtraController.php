@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/extra")
+ * @Route("/admin/extra")
  */
 class ExtraController extends AbstractController
 {
@@ -20,7 +20,7 @@ class ExtraController extends AbstractController
      */
     public function index(ExtraRepository $extraRepository): Response
     {
-        return $this->render('extra/base.html.twig', [
+        return $this->render('/admin/extra/index.html.twig', [
             'extras' => $extraRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class ExtraController extends AbstractController
             return $this->redirectToRoute('extra_index');
         }
 
-        return $this->render('extra/new.html.twig', [
+        return $this->render('/admin/extra/new.html.twig', [
             'extra' => $extra,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class ExtraController extends AbstractController
      */
     public function show(Extra $extra): Response
     {
-        return $this->render('extra/show.html.twig', [
+        return $this->render('/admin/extra/show.html.twig', [
             'extra' => $extra,
         ]);
     }
@@ -74,7 +74,7 @@ class ExtraController extends AbstractController
             ]);
         }
 
-        return $this->render('extra/_form.html.twig', [
+        return $this->render('/admin/extra/_form.html.twig', [
             'extra' => $extra,
             'form' => $form->createView(),
         ]);

@@ -1,39 +1,66 @@
-<!DOCTYPE html>
-
-<title>Contact index</title>
-
+{% extends 'admin/base.html.twig' %}
 {% block body %}
-    <h1>Contact index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Message</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contact in contacts %}
-            <tr>
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.message }}</td>
-                <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('contact_new') }}">Create new</a>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Message</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Nom
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Message
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for contact in contacts %}
+                                        <tr>
+                                            <td>
+                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
+                                                    {{ contact.name }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
+                                                    {{ contact.email }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
+                                                    {{ contact.message[:100] ~ '...'  }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <div class="delete">
+                                                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">
+                                                        <i class="mdi mdi-pencil-box-outline text-gray"></i>
+                                                    </a>
+                                                    {{ include('/admin/contact/_delete_form.html.twig') }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="mdi mdi-playlist-plus text-gray" href="{{ path('portfolio_new') }}">Créer</a>
+        </div>
+    </div>
 {% endblock %}
