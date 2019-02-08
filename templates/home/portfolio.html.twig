@@ -1,62 +1,63 @@
 {% block body %}
     <section class="portfolio-section">
         <div class="portfolio-warp">
-            <!-- single item -->
-            <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/1.jpg">
+            {% for portfolio in portfolios %}
+            <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}">
                 <a href="https://wildcodeschool.github.io/lyon-0918-portfolio/page3.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/1.jpg"></div>
-                    <h5>DEvelopers on Demand </h5>
-                    <p>09/18 - 10/18 Wild Code School</p>
+                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}"></div>
+                    <h5>{{ portfolio.title }}</h5>
+                    <p>{{ portfolio.subTitle }}</p>
                 </a>
             </div>
-            <!-- single item -->
-            <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/2.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/2.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
-            <!-- single item -->
-            <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/3.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/3.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
-            <!-- single item -->
-            <div class="single-portfolio sm-wide set-bg" data-setbg="home/img/portfolio/4.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/4.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
-            <!-- single item -->
-            <div class="single-portfolio sm-wide set-bg " data-setbg="home/img/portfolio/5.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/5.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
-            <!-- single item -->
-            <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/6.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/6.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
-            <!-- single item -->
-            <div class="single-portfolio sm-wide md-w-100 set-bg " data-setbg="home/img/portfolio/7.jpg">
-                <a href="single-work.html" class="portfolio-info">
-                    <div class="pfbg set-bg" data-setbg="home/img/portfolio/7.jpg"></div>
-                    <h5>Summer in the desert</h5>
-                    <p>Landscape Photography</p>
-                </a>
-            </div>
+            {% endfor %}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio set-bg" data-setbg="home/img/portfolio/2.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/2.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio set-bg" data-setbg="home/img/portfolio/3.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/3.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio sm-wide set-bg" data-setbg="home/img/portfolio/4.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/4.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio sm-wide set-bg " data-setbg="home/img/portfolio/5.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/5.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio set-bg" data-setbg="home/img/portfolio/6.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/6.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
+            {#<!-- single item -->#}
+            {#<div class="single-portfolio sm-wide md-w-100 set-bg " data-setbg="home/img/portfolio/7.jpg">#}
+                {#<a href="single-work.html" class="portfolio-info">#}
+                    {#<div class="pfbg set-bg" data-setbg="home/img/portfolio/7.jpg"></div>#}
+                    {#<h5>Summer in the desert</h5>#}
+                    {#<p>Landscape Photography</p>#}
+                {#</a>#}
+            {#</div>#}
         </div>
         <div class="clearfix"></div>
     </section>

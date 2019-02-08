@@ -6,3 +6,17 @@
     font-size: 30px;
     padding-left: 50px;
 }
+
+.portfolio-info .pfbg {
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    -webkit-transform: scale(1.12);
+    -ms-transform: scale(1.12);
+    transform: scale(1.12);
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    background-position: center center;
+}
