@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/intro")
+ * @Route("/admin/aboutus")
  */
 class IntroController extends AbstractController
 {

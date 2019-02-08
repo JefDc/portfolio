@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/soft/skill")
+ * @Route("/admin/softskill")
  */
 class SoftSkillController extends AbstractController
 {
@@ -20,7 +20,7 @@ class SoftSkillController extends AbstractController
      */
     public function index(SoftSkillRepository $softSkillRepository): Response
     {
-        return $this->render('soft_skill/base.html.twig', [
+        return $this->render('/admin/soft_skill/index.html.twig', [
             'soft_skills' => $softSkillRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class SoftSkillController extends AbstractController
             return $this->redirectToRoute('soft_skill_index');
         }
 
-        return $this->render('soft_skill/new.html.twig', [
+        return $this->render('/admin/soft_skill/new.html.twig', [
             'soft_skill' => $softSkill,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class SoftSkillController extends AbstractController
      */
     public function show(SoftSkill $softSkill): Response
     {
-        return $this->render('soft_skill/show.html.twig', [
+        return $this->render('/admin/soft_skill/show.html.twig', [
             'soft_skill' => $softSkill,
         ]);
     }
@@ -74,7 +74,7 @@ class SoftSkillController extends AbstractController
             ]);
         }
 
-        return $this->render('soft_skill/_form.html.twig', [
+        return $this->render('/admin/soft_skill/_form.html.twig', [
             'soft_skill' => $softSkill,
             'form' => $form->createView(),
         ]);

@@ -1,37 +1,40 @@
-<!DOCTYPE html>
-
-<title>SoftSkill index</title>
+{% extends 'admin/base.html.twig' %}
 
 {% block body %}
-    <h1>SoftSkill index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for soft_skill in soft_skills %}
-            <tr>
-                <td>{{ soft_skill.id }}</td>
-                <td>{{ soft_skill.title }}</td>
-                <td>{{ soft_skill.content }}</td>
-                <td>
-                    <a href="{{ path('soft_skill_show', {'id': soft_skill.id}) }}">show</a>
-                    <a href="{{ path('soft_skill_edit', {'id': soft_skill.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-6 grid-margin mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Soft Skill</h4>
+                        {% for soft_skill in soft_skills %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Titre :</label>
+                                    <div class="col-sm-9">
+                                        {{ soft_skill.title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Texte :</label>
+                                    <div class="col-sm-9">
+                                        {{ soft_skill.content }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <a href="{{ path('soft_skill_edit', {'id' : soft_skill.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="{{ path('soft_skill_new') }}">Create new</a>
 {% endblock %}

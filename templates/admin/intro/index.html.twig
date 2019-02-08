@@ -1,53 +1,56 @@
 {% extends 'admin/base.html.twig' %}
 {% block body %}
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="row justify-content-center">
-                <div class="col-6 grid-margin mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Intro</h4>
-                            {% for intro in intros %}
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nom</label>
-                                            <div class="col-sm-9">
-                                                {{ intro.name }}
-                                            </div>
-                                        </div>
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-6 grid-margin mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Intro</h4>
+                        {% for intro in intros %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Nom :</label>
+                                    <div class="col-sm-9">
+                                        {{ intro.name }}
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Titre</label>
-                                            <div class="col-sm-9">
-                                                {{ intro.title }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Sous titre</label>
-                                            <div class="col-sm-9">
-                                                {{ intro.subTitle }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Photo</label>
-                                                <div class="col-sm-9">
-                                                    <img class="img-fluid img-thumbnail sizePictureTab" src="/home/img/intro/{{ intro.img }}" alt="jef dc">
-                                                </div>
-                                            </div>
-                                        </div>
                             </div>
-                                <a href="{{ path('intro_edit', {'id' : intro.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Titre :</label>
+                                    <div class="col-sm-9">
+                                        {{ intro.title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Sous titre :</label>
+                                    <div class="col-sm-9">
+                                        {{ intro.subTitle }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label pl-4">Photo :</label>
+                                        <div class="col-sm-9">
+                                            <img class="img-fluid img-thumbnail sizePictureTab"
+                                                 src="/home/img/intro/{{ intro.img }}" alt="jef dc">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ path('intro_edit', {'id' : intro.id}) }}">
+                                <button type="submit" class="btn btn-success ml-3 mt-3">Éditer</button>
+                            </a>
                             {% endfor %}
                         </div>
                     </div>
@@ -55,4 +58,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}
