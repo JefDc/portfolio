@@ -2,34 +2,20 @@
     <section class="milestones-section spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 fact-box">
-                    <div class="fact-content">
-                        <i class="flaticon-gamepad"></i>
-                        {#<h2>48</h2>#}
-                        <p>VIDEO gAMES</p>
-                    </div>
+                <div class="">
+                   <h2 class="text-white competence">COMPÉTENCE</h2>
                 </div>
-                <div class="col-lg-3 col-md-6 fact-box">
-                    <div class="fact-content">
-                        <i class="flaticon-trophy"></i>
-                        <h2>7</h2>
-                        <p>AWARDS WON</p>
+            </div>
+            <div class="row">
+                {% for skill in skills %}
+                    <div class="col-lg-3 col-md-6 fact-box mt-5">
+                        <div class="text-center">
+                            <img class="" src="/home/img/skill/{{ skill.img }}">
+                            {#<h2>48</h2>#}
+                            <p class="text-white m-4">{{ skill.title }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 fact-box">
-                    <div class="fact-content">
-                        <i class="flaticon-alarm-clock"></i>
-                        <h2>23K</h2>
-                        <p>Pictures taken</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 fact-box">
-                    <div class="fact-content">
-                        <i class="flaticon-laptop"></i>
-                        <h2>19</h2>
-                        <p>Video tutorials</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
