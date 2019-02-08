@@ -1,4 +1,27 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Intro</h4>
+                            {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                            <div class="form-group">
+                                <label for="exampleInputName1">Name</label>
+                                {{ form_widget(form.title) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Title</label>
+                                {{ form_widget(form.content) }}
+                            </div>
+                            <button type="submit" class="btn btn-success mr-2">Submit</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

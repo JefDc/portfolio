@@ -31,6 +31,11 @@ class Intro
      */
     private $subTitle;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class Intro
     public function setSubTitle(string $subTitle): self
     {
         $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img): self
+    {
+        $this->img = $img;
 
         return $this;
     }

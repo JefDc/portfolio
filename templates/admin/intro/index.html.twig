@@ -3,7 +3,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row justify-content-center">
-                <div class="col-6 grid-margin">
+                <div class="col-6 grid-margin ">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Intro</h4>
@@ -37,6 +37,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Photo</label>
+                                                <div class="col-sm-9">
+                                                    <img class="img-fluid img-thumbnail sizePictureTab" src="/home/img/intro/{{ intro.img }}" alt="jef dc">
+                                                </div>
+                                            </div>
+                                        </div>
                             </div>
                                 <a href="{{ path('intro_edit', {'id' : intro.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
                             {% endfor %}
