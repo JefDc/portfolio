@@ -6,16 +6,16 @@
         </div>
         <nav class="main-menu">
             <ul>
-                <li><a href="home/index.html">Home</a></li>
-                <li><a href="home/about.html">about us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="home/portfolio.html">Portfolio</a></li>
-                <li><a href="home/blog.html">Blog</a></li>
-                <li><a href="home/contact.html">Contact</a></li>
+                <li><a href="{{ path('home', relative = true) }}#home">Home</a></li>
+                <li><a href="{{ path('home', relative = true) }}#aboutUs">About Us</a></li>
+                <li><a href="{{ path('home', relative = true) }}#portfolio">Portfolio</a></li>
+                <li><a href="{{ path('home', relative = true) }}#competence">Compétence</a></li>
+                <li><a href="{{ path('home', relative = true) }}#soft">Soft Skill</a></li>
+                <li><a href="{{ path('home', relative = true) }}#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="hero-slider owl-carousel">
             {% for intro in intros %}
             <div class="hs-item set-bg sp-pad" data-setbg="home/img/intro/{{ intro.img }}">
