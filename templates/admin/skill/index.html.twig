@@ -1,37 +1,52 @@
-<!DOCTYPE html>
-
-<title>Skill index</title>
-
+{% extends 'admin/base.html.twig' %}
 {% block body %}
-    <h1>Skill index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Img</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for skill in skills %}
-            <tr>
-                <td>{{ skill.id }}</td>
-                <td>{{ skill.title }}</td>
-                <td>{{ skill.img }}</td>
-                <td>
-                    <a href="{{ path('skill_show', {'id': skill.id}) }}">show</a>
-                    <a href="{{ path('skill_edit', {'id': skill.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('skill_new') }}">Create new</a>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Skill</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Titre
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for skill in skills %}
+                                        <tr>
+                                            <td>
+                                                <img src="/home/img/skill/{{ skill.img }}" alt="jef-dc">
+                                            </td>
+                                            <td>
+                                                {{ skill.title }}
+                                            </td>
+                                            <td>
+                                                <div class="delete">
+                                                    <a href="{{ path('skill_edit', {'id': skill.id}) }}"><i class="mdi mdi-pencil-box-outline text-gray"></i></a>
+                                                    {{ include('/admin/skill/_delete_form.html.twig') }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="mdi mdi-playlist-plus text-gray" href="{{ path('skill_new') }}">Créer</a>
+        </div>
+    </div>
 {% endblock %}

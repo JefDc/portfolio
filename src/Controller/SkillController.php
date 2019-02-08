@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/skill")
+ * @Route("admin/skill")
  */
 class SkillController extends AbstractController
 {
@@ -20,7 +20,7 @@ class SkillController extends AbstractController
      */
     public function index(SkillRepository $skillRepository): Response
     {
-        return $this->render('skill/base.html.twig', [
+        return $this->render('/admin/skill/index.html.twig', [
             'skills' => $skillRepository->findAll(),
         ]);
     }
@@ -35,6 +35,11 @@ class SkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $skill->getImg();
+            $fileName = md5(uniqid()). '-skill.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_skill_directory'), $fileName);
+            $skill->setImg($fileName);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($skill);
             $entityManager->flush();
@@ -42,7 +47,7 @@ class SkillController extends AbstractController
             return $this->redirectToRoute('skill_index');
         }
 
-        return $this->render('skill/new.html.twig', [
+        return $this->render('/admin/skill/new.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
         ]);
@@ -53,7 +58,7 @@ class SkillController extends AbstractController
      */
     public function show(Skill $skill): Response
     {
-        return $this->render('skill/show.html.twig', [
+        return $this->render('/admin/skill/show.html.twig', [
             'skill' => $skill,
         ]);
     }
@@ -67,6 +72,11 @@ class SkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $skill->getImg();
+            $fileName = md5(uniqid()). 'skill.' .$file->guessExtension();
+            $file->move($this->getParameter('uplaod_skill_directory'), $fileName);
+            $skill->setImg($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('skill_index', [
@@ -74,7 +84,7 @@ class SkillController extends AbstractController
             ]);
         }
 
-        return $this->render('skill/_form.html.twig', [
+        return $this->render('/admin/skill/_form.html.twig', [
             'skill' => $skill,
             'form' => $form->createView(),
         ]);

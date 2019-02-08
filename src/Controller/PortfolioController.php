@@ -73,6 +73,11 @@ class PortfolioController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $portfolio->getImg();
+            $fileName = md5(uniqid()). '-portfolio.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_portfolio_directory'), $fileName);
+            $portfolio->setImg($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('portfolio_index', [

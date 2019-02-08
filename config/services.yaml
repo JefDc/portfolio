@@ -7,6 +7,7 @@ parameters:
     locale: 'fr'
     upload_intro_directory: '%kernel.project_dir%/public/home/img/intro'
     upload_portfolio_directory: '%kernel.project_dir%/public/home/img/portfolio'
+    upload_skill_directory: '%kernel.project_dir%/public/home/img/skill'
 
 services:
     # default configuration for services in *this* file
