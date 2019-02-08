@@ -35,6 +35,11 @@ class SoftSkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $softSkill->getImg();
+            $fileName = md5(uniqid()). '-softSkill.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_soft_skill_directory'), $fileName);
+            $softSkill->setImg($fileName);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($softSkill);
             $entityManager->flush();
@@ -67,6 +72,11 @@ class SoftSkillController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $softSkill->getImg();
+            $fileName = md5(uniqid()). '-softSkill-' .$file->guessExtension();
+            $file->move($this->getParameter('upload_soft_skill_directory'), $fileName);
+            $softSkill->setImg($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('soft_skill_index', [

@@ -1,40 +1,58 @@
 {% extends 'admin/base.html.twig' %}
-
 {% block body %}
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row justify-content-center">
-            <div class="col-6 grid-margin mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">Soft Skill</h4>
-                        {% for soft_skill in soft_skills %}
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Titre :</label>
-                                    <div class="col-sm-9">
-                                        {{ soft_skill.title }}
-                                    </div>
-                                </div>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Soft Skill</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Titre
+                                        </th>
+                                        <th>
+                                            Text
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for softskill in soft_skills %}
+                                        <tr>
+                                            <td>
+                                                <img src="/home/img/soft_skill/{{ softskill.img }}" alt="jef-dc">
+                                            </td>
+                                            <td>
+                                                {{ softskill.title }}
+                                            </td>
+                                            <td>
+                                                {{ softskill.content[:30] ~ '...'  }}
+                                            </td>
+                                            <td>
+                                                <div class="delete">
+                                                    <a href="{{ path('soft_skill_edit', {'id': softskill.id}) }}"><i class="mdi mdi-pencil-box-outline text-gray"></i></a>
+                                                    {{ include('/admin/soft_skill/_delete_form.html.twig') }}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Texte :</label>
-                                    <div class="col-sm-9">
-                                        {{ soft_skill.content }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            <a href="{{ path('soft_skill_edit', {'id' : soft_skill.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
+            <a class="mdi mdi-playlist-plus text-gray" href="{{ path('soft_skill_new') }}">Créer</a>
         </div>
     </div>
-    <a href="{{ path('soft_skill_new') }}">Create new</a>
 {% endblock %}

@@ -26,6 +26,11 @@ class SoftSkill
      */
     private $content;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $img;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class SoftSkill
     public function setContent(string $content): self
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img): self
+    {
+        $this->img = $img;
 
         return $this;
     }

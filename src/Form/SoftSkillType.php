@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\SoftSkill;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +25,12 @@ class SoftSkillType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-        ;
+            ->add('img', FileType::class, [
+                'data_class' => null,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
