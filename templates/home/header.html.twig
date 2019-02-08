@@ -17,12 +17,14 @@
     </header>
     <section class="hero-section">
         <div class="hero-slider owl-carousel">
-            <div class="hs-item set-bg sp-pad" data-setbg="home/img/intro/intro.jpg">
+            {% for intro in intros %}
+            <div class="hs-item set-bg sp-pad" data-setbg="home/img/intro/{{ intro.img }}">
                 <div class="hs-text">
-                    <h2 class="hs-title">J.f De CONTI</h2>
-                    <p class="hs-des">Développeur web<br>Php & Symfony</p>
+                    <h2 class="hs-title">{{ intro.name }}</h2>
+                    <p class="hs-des">{{ intro.title }}<br>{{ intro.subTitle }}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </section>
 {% endblock %}

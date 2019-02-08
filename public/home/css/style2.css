@@ -1,7 +1,8 @@
 .milestones-section {
-    background: dimgrey;
+    background: black;
 }
 
 .competence {
     font-size: 30px;
+    padding-left: 50px;
 }
