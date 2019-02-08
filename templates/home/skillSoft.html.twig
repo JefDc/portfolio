@@ -13,34 +13,15 @@
                 <div class="row">
                     <div class="col-xl-8 offset-xl-4">
                         <div class="row">
+                        {% for softskill in soft_skills %}
                             <div class="col-md-6">
                                 <div class="icon-box">
-                                    <i class="flaticon-video-camera"></i>
-                                    <h4>Video Footages</h4>
-                                    <p>Suspendisse dictum enim sit amet libero feugiat. Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. </p>
+                                    <img class="mb-4" src="home/img/soft_skill/{{ softskill.img }}" alt="jef-dc">
+                                    <h4>{{ softskill.title }}</h4>
+                                    <p>{{ softskill.content }}</p>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="icon-box">
-                                    <i class="flaticon-photo-camera"></i>
-                                    <h4>Photo Shootings</h4>
-                                    <p>Congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="icon-box">
-                                    <i class="flaticon-safebox"></i>
-                                    <h4>photo albums</h4>
-                                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent malesuada congue magna at finibus. </p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="icon-box">
-                                    <i class="flaticon-idea"></i>
-                                    <h4>Original ideas</h4>
-                                    <p>Praesent malesuada congue magna at finibus. In hac habitasse platea dictumst. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna.</p>
-                                </div>
-                            </div>
+                        {% endfor %}
                         </div>
                     </div>
                 </div>
