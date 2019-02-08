@@ -3,46 +3,62 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="row justify-content-center">
-                <div class="col-6 grid-margin">
+                <div class="col-lg-12 grid-margin stretch-card mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Link</th>
-                    <th>Img</th>
-                    <th>Title</th>
-                    <th>SubTitle</th>
-                    <th>actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for portfolio in portfolios %}
-                <tr>
-                    <td>{{ portfolio.id }}</td>
-                    <td>{{ portfolio.link }}</td>
-                    <td>{{ portfolio.img }}</td>
-                    <td>{{ portfolio.title }}</td>
-                    <td>{{ portfolio.subTitle }}</td>
-                    <td>
-                        <a href="{{ path('portfolio_show', {'id': portfolio.id}) }}">show</a>
-                        <a href="{{ path('portfolio_edit', {'id': portfolio.id}) }}">edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="6">no records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                            <h4 class="card-title">Portfolio</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Lien
+                                        </th>
+                                        <th>
+                                            Titre
+                                        </th>
+                                        <th>
+                                            Sous Titre
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for portfolio in portfolios %}
+                                    <tr>
+                                        <td>
+                                            <img src="/home/img/portfolio/{{ portfolio.img }}" alt="jef-dc">
+                                        </td>
+                                        <td>
+                                            {{ portfolio.link[:30] ~ '...'  }}
+                                        </td>
+                                        <td>
+                                            {{ portfolio.title }}
+                                        </td>
+                                        <td>
+                                            {{ portfolio.subTitle }}
+                                        </td>
+                                        <td>
+                                            <div class="delete">
+                                                <a href="{{ path('portfolio_edit', {'id': portfolio.id}) }}"><i class="mdi mdi-pencil-box-outline text-gray"></i></a>
+                                                {{ include('/admin/portfolio/_delete_form.html.twig') }}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        <a class="mdi mdi-playlist-plus text-gray" href="{{ path('portfolio_new') }}">Créer</a>
         </div>
-        <a href="{{ path('portfolio_new') }}">Create new</a>
     </div>
-
 {% endblock %}

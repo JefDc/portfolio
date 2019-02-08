@@ -11,8 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/portfolio")
+ * @Route("/admin/portfolio")
  */
+
 class PortfolioController extends AbstractController
 {
     /**
@@ -20,7 +21,7 @@ class PortfolioController extends AbstractController
      */
     public function index(PortfolioRepository $portfolioRepository): Response
     {
-        return $this->render('admin/portfolio/index.html.twig', [
+        return $this->render('/admin/portfolio/index.html.twig', [
             'portfolios' => $portfolioRepository->findAll(),
         ]);
     }
@@ -35,6 +36,11 @@ class PortfolioController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $portfolio->getImg();
+            $fileName = md5(uniqid()). '-portfolio.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_portfolio_directory'), $fileName);
+            $portfolio->setImg($fileName);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($portfolio);
             $entityManager->flush();
@@ -42,7 +48,7 @@ class PortfolioController extends AbstractController
             return $this->redirectToRoute('portfolio_index');
         }
 
-        return $this->render('admin/portfolio/new.html.twig', [
+        return $this->render('/admin/portfolio/new.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);
@@ -53,7 +59,7 @@ class PortfolioController extends AbstractController
      */
     public function show(Portfolio $portfolio): Response
     {
-        return $this->render('admin/portfolio/show.html.twig', [
+        return $this->render('/admin/portfolio/show.html.twig', [
             'portfolio' => $portfolio,
         ]);
     }
@@ -74,7 +80,7 @@ class PortfolioController extends AbstractController
             ]);
         }
 
-        return $this->render('admin/portfolio/_form.html.twig', [
+        return $this->render('/admin/portfolio/_form.html.twig', [
             'portfolio' => $portfolio,
             'form' => $form->createView(),
         ]);
