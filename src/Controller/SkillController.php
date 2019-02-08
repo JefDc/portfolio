@@ -74,7 +74,7 @@ class SkillController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $skill->getImg();
             $fileName = md5(uniqid()). 'skill.' .$file->guessExtension();
-            $file->move($this->getParameter('uplaod_skill_directory'), $fileName);
+            $file->move($this->getParameter('upload_skill_directory'), $fileName);
             $skill->setImg($fileName);
 
             $this->getDoctrine()->getManager()->flush();
