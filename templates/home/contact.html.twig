@@ -1,6 +1,9 @@
 {% block body %}
     <section class="contact-section set-bg spad" data-setbg="home/img/contact-bg.jpg" id="contact">
         <div class="container-fluid contact-warp">
+            <div class="row justify-content-center">
+                {% include 'home/flash_message.html.twig' %}
+            </div>
             <div class="contact-text">
                 <div class="container p-0">
                     <span class="sp-sub-title">Amazing studio</span>
@@ -17,21 +20,20 @@
             <div class="container p-0">
                 <div class="row">
                     <div class="col-xl-8 offset-xl-4">
-                        <form class="contact-form">
+                        {{ form_start(form, {'attr' : {'class' : 'contact-form'}}) }}
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Your name">
+                                    {{ form_widget(form.name) }}
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" placeholder="E-mail">
+                                    {{ form_widget(form.email) }}
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="text" placeholder="Subject">
-                                    <textarea placeholder="Message"></textarea>
-                                    <button class="site-btn light">Send</button>
+                                    {{ form_widget(form.message) }}
+                                    <button class="site-btn light">Envoyer</button>
                                 </div>
                             </div>
-                        </form>
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
