@@ -71,6 +71,21 @@ class Extra
      */
     private $subTitleAboutUs;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $github;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $linkedin;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $twitter;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -204,6 +219,42 @@ class Extra
     public function setSubTitleAboutUs(string $subTitleAboutUs): self
     {
         $this->subTitleAboutUs = $subTitleAboutUs;
+
+        return $this;
+    }
+
+    public function getGithub(): ?string
+    {
+        return $this->github;
+    }
+
+    public function setGithub(string $github): self
+    {
+        $this->github = $github;
+
+        return $this;
+    }
+
+    public function getLinkedin(): ?string
+    {
+        return $this->linkedin;
+    }
+
+    public function setLinkedin(string $linkedin): self
+    {
+        $this->linkedin = $linkedin;
+
+        return $this;
+    }
+
+    public function getTwitter(): ?string
+    {
+        return $this->twitter;
+    }
+
+    public function setTwitter(string $twitter): self
+    {
+        $this->twitter = $twitter;
 
         return $this;
     }

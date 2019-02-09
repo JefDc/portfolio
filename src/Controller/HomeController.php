@@ -42,8 +42,6 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home', ['_fragment' => 'contact']);
         }
 
-
-
         return $this->render('home/index.html.twig', [
             'skills' => $skillRepository->findAll(),
             'intros' => $introRepository->findAll(),

@@ -10,14 +10,14 @@
                     <span class="sp-sub-title">{{ extra.subTitleContact }}</span>
                     <h3 class="sp-title">{{ extra.titleContact }}</h3>
                     <p>{{ extra.textContact }}</p>
-            {% endfor %}
                     <ul class="con-info">
-                        <li><i class="flaticon-phone-call"></i>+45 677 8993000 223</li>
-                        <li><i class="flaticon-envelope"></i>office@template.com</li>
-                        <li><i class="flaticon-placeholder"></i>Main Str. no 45-46, b3, 56832,<br> Los Angeles, CA</li>
+                        <li><i class="flaticon-phone-call"></i>{{ extra.numberPhone }}</li>
+                        <li><i class="flaticon-envelope"></i>{{ extra.email }}</li>
+                        <li><i class="flaticon-placeholder"></i>{{ extra.address }}</li>
                     </ul>
                 </div>
             </div>
+            {% endfor %}
             <div class="container p-0">
                 <div class="row">
                     <div class="col-xl-8 offset-xl-4">

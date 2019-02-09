@@ -71,6 +71,21 @@ class ExtraType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
+            ->add('github', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('linkedin', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('twitter', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
         ;
     }
 
