@@ -3,7 +3,9 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="comp">
-                   <h2 class="text-white competence">COMPÉTENCE</h2>
+                    {% for extra in extras %}
+                        <h2 class="text-white competence">{{ extra.titleSkill }}</h2>
+                    {% endfor %}
                 </div>
             </div>
             <div class="container">

@@ -4,7 +4,9 @@
             <div class="row">
                 <div class="col-xl-12 intro-text">
                     {% for aboutus in intro %}
-                    <span class="sp-sub-title">A propos</span>
+                        {% for extra in extras %}
+                            <span class="sp-sub-title">{{ extra.subTitleAboutUs }}</span>
+                        {% endfor %}
                     <h3 class="sp-title">{{ aboutus.title }}</h3>
                     <p>{{ aboutus.content }}</p>
                     {% endfor %}

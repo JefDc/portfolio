@@ -8,8 +8,19 @@
                         <div class="card-body">
                             <h4 class="card-title">Extra</h4>
                             {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                            <div class="subTitle">
+                                <h4 class="card-title text-center mb-4">Contact</h4>
+                            </div>
                             <div class="form-group">
-                                <label for="exampleInputName1">Numero de téléphone</label>
+                                <label for="exampleInputName1">Titre</label>
+                                {{ form_widget(form.titleContact) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Sous titre</label>
+                                {{ form_widget(form.subTitleContact) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Téléphone</label>
                                 {{ form_widget(form.numberPhone) }}
                             </div>
                             <div class="form-group">
@@ -21,12 +32,37 @@
                                 {{ form_widget(form.email) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword4">Texte contact</label>
+                                <label for="exampleInputPassword4">Texte</label>
                                 {{ form_widget(form.textContact) }}
                             </div>
+                            <div class="subTitle">
+                                <h4 class="card-title text-center m-4">Skill</h4>
+                            </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword4">Text soft skill</label>
+                                <label for="exampleInputName1">Titre</label>
+                                {{ form_widget(form.titleSkill) }}
+                            </div>
+                            <div class="subTitle">
+                                <h4 class="card-title text-center m-4">Soft skill</h4>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Titre</label>
+                                {{ form_widget(form.titleSoftSkill) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Sous titre</label>
+                                {{ form_widget(form.subTitleSoftSkill) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Text</label>
                                 {{ form_widget(form.textSoftSkill) }}
+                            </div>
+                            <div class="subTitle">
+                                <h4 class="card-title text-center m-4">A propos</h4>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Sous titre</label>
+                                {{ form_widget(form.subTitleAboutUs) }}
                             </div>
                             {#<div class="form-group">#}
                                 {#<label>Photo ( 1000 X 667 )</label>#}

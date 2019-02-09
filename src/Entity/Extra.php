@@ -41,6 +41,36 @@ class Extra
      */
     private $textSoftSkill;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titleContact;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subTitleContact;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titleSoftSkill;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subTitleSoftSkill;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titleSkill;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subTitleAboutUs;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -102,6 +132,78 @@ class Extra
     public function setTextSoftSkill(string $textSoftSkill): self
     {
         $this->textSoftSkill = $textSoftSkill;
+
+        return $this;
+    }
+
+    public function getTitleContact(): ?string
+    {
+        return $this->titleContact;
+    }
+
+    public function setTitleContact(string $titleContact): self
+    {
+        $this->titleContact = $titleContact;
+
+        return $this;
+    }
+
+    public function getSubTitleContact(): ?string
+    {
+        return $this->subTitleContact;
+    }
+
+    public function setSubTitleContact(string $subTitleContact): self
+    {
+        $this->subTitleContact = $subTitleContact;
+
+        return $this;
+    }
+
+    public function getTitleSoftSkill(): ?string
+    {
+        return $this->titleSoftSkill;
+    }
+
+    public function setTitleSoftSkill(string $titleSoftSkill): self
+    {
+        $this->titleSoftSkill = $titleSoftSkill;
+
+        return $this;
+    }
+
+    public function getSubTitleSoftSkill(): ?string
+    {
+        return $this->subTitleSoftSkill;
+    }
+
+    public function setSubTitleSoftSkill(string $subTitleSoftSkill): self
+    {
+        $this->subTitleSoftSkill = $subTitleSoftSkill;
+
+        return $this;
+    }
+
+    public function getTitleSkill(): ?string
+    {
+        return $this->titleSkill;
+    }
+
+    public function setTitleSkill(string $titleSkill): self
+    {
+        $this->titleSkill = $titleSkill;
+
+        return $this;
+    }
+
+    public function getSubTitleAboutUs(): ?string
+    {
+        return $this->subTitleAboutUs;
+    }
+
+    public function setSubTitleAboutUs(string $subTitleAboutUs): self
+    {
+        $this->subTitleAboutUs = $subTitleAboutUs;
 
         return $this;
     }

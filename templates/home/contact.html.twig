@@ -4,12 +4,13 @@
             <div class="row justify-content-center">
                 {% include 'home/flash_message.html.twig' %}
             </div>
+            {% for extra in extras %}
             <div class="contact-text">
                 <div class="container p-0">
-                    <span class="sp-sub-title">Amazing studio</span>
-                    <h3 class="sp-title">Stay in touch</h3>
-                    <p>Integer nec bibendum lacus. Suspendisse dictum enim sit amet libero malesuada feugiat. Praesent malesuada congue magna at finibus. In hac habi tasse platea dictumst. Curabitur rhoncus auctor eleifend.</p>
-
+                    <span class="sp-sub-title">{{ extra.subTitleContact }}</span>
+                    <h3 class="sp-title">{{ extra.titleContact }}</h3>
+                    <p>{{ extra.textContact }}</p>
+            {% endfor %}
                     <ul class="con-info">
                         <li><i class="flaticon-phone-call"></i>+45 677 8993000 223</li>
                         <li><i class="flaticon-envelope"></i>office@template.com</li>

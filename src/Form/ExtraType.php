@@ -31,10 +31,42 @@ class ExtraType extends AbstractType
             ])
             ->add('textContact', TextareaType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'rows' => '10'
                 ]
             ])
             ->add('textSoftSkill', TextareaType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'rows' => "10"
+                ]
+            ])
+            ->add('titleContact', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('subTitleContact', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('titleSoftSkill', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('subTitleSoftSkill', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('titleSkill', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('subTitleAboutUs', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]
