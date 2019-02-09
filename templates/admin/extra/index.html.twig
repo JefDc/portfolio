@@ -1,43 +1,74 @@
-<!DOCTYPE html>
-
-<title>Extra index</title>
-
+{% extends 'admin/base.html.twig' %}
 {% block body %}
-    <h1>Extra index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>NumberPhone</th>
-                <th>Address</th>
-                <th>Email</th>
-                <th>TextContact</th>
-                <th>TextSoftSkill</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for extra in extras %}
-            <tr>
-                <td>{{ extra.id }}</td>
-                <td>{{ extra.numberPhone }}</td>
-                <td>{{ extra.address }}</td>
-                <td>{{ extra.email }}</td>
-                <td>{{ extra.textContact }}</td>
-                <td>{{ extra.textSoftSkill }}</td>
-                <td>
-                    <a href="{{ path('extra_show', {'id': extra.id}) }}">show</a>
-                    <a href="{{ path('extra_edit', {'id': extra.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('extra_new') }}">Create new</a>
+{% for extra in extras %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-6 grid-margin mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">A propos</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Numero de téléphone :</label>
+                                            <div class="col-sm-9">
+                                                {{ extra.numberPhone }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Adresse :</label>
+                                            <div class="col-sm-9">
+                                                {{ extra.address }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Email :</label>
+                                            <div class="col-sm-9">
+                                                {{ extra.email }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Texte contact :</label>
+                                            <div class="col-sm-9">
+                                                {{ extra.textContact }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Texte soft skill :</label>
+                                            <div class="col-sm-9">
+                                                {{ extra.textSoftSkill }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('extra_edit', {'id' : extra.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
+                        </div>
+                    </div>
+                     <a href="{{ path('extra_new') }}" class="mdi mdi-playlist-plus text-gray">Create new</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}
+
+
+
+

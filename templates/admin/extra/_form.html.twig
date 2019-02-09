@@ -1,4 +1,49 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Extra</h4>
+                            {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                            <div class="form-group">
+                                <label for="exampleInputName1">Numero de téléphone</label>
+                                {{ form_widget(form.numberPhone) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Adresse</label>
+                                {{ form_widget(form.address) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Email</label>
+                                {{ form_widget(form.email) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Texte contact</label>
+                                {{ form_widget(form.textContact) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Text soft skill</label>
+                                {{ form_widget(form.textSoftSkill) }}
+                            </div>
+                            {#<div class="form-group">#}
+                                {#<label>Photo ( 1000 X 667 )</label>#}
+                                {#<input type="file" name="img[]" class="file-upload-default">#}
+                                {#<div class="input-group col-xs-12">#}
+                                    {#{{ form_widget(form.img) }}#}
+                                    {#<span class="input-group-append">#}
+                                        {#<button class="file-upload-browse btn btn-info" type="button">Upload</button>#}
+                                    {#</span>#}
+                                {#</div>#}
+                            {#</div>#}
+                            <button type="submit" class="btn btn-success mr-2">Envoyer</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
