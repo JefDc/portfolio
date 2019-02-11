@@ -9,6 +9,7 @@ parameters:
     upload_portfolio_directory: '%kernel.project_dir%/public/home/img/portfolio'
     upload_skill_directory: '%kernel.project_dir%/public/home/img/skill'
     upload_soft_skill_directory: '%kernel.project_dir%/public/home/img/soft_skill'
+    upload_contact_directory: '%kernel.project_dir%/public/home/img/extra'
 
 services:
     # default configuration for services in *this* file

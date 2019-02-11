@@ -86,6 +86,11 @@ class Extra
      */
     private $twitter;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $imgContact;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -255,6 +260,18 @@ class Extra
     public function setTwitter(string $twitter): self
     {
         $this->twitter = $twitter;
+
+        return $this;
+    }
+
+    public function getImgContact()
+    {
+        return $this->imgContact;
+    }
+
+    public function setImgContact($imgContact): self
+    {
+        $this->imgContact = $imgContact;
 
         return $this;
     }

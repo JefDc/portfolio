@@ -1,8 +1,10 @@
 {% block body %}
-    <section class="contact-section set-bg spad" data-setbg="home/img/contact-bg.jpg" id="contact">
+    {% for extra in extras %}
+    <section class="contact-section set-bg spad" data-setbg="home/img/extra/{{ extra.imgContact }}" id="contact">
+    {% endfor %}
+                {% include 'home/flash_message.html.twig' %}
         <div class="container-fluid contact-warp">
             <div class="row justify-content-center">
-                {% include 'home/flash_message.html.twig' %}
             </div>
             {% for extra in extras %}
             <div class="contact-text">

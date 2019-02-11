@@ -65,6 +65,19 @@
                                 {{ form_widget(form.subTitleAboutUs) }}
                             </div>
                             <div class="subTitle">
+                                <h4 class="card-title text-center m-4">Contact</h4>
+                            </div>
+                            <div class="form-group">
+                                <label>Photo ( 1920 X 751 )</label>
+                                <input type="file" name="img[]" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    {{ form_widget(form.imgContact) }}
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="subTitle">
                                 <h4 class="card-title text-center m-4">Footer</h4>
                             </div>
                             <div class="form-group">
@@ -79,16 +92,6 @@
                                 <label for="exampleInputPassword4">Twitter</label>
                                 {{ form_widget(form.twitter) }}
                             </div>
-                            {#<div class="form-group">#}
-                                {#<label>Photo ( 1000 X 667 )</label>#}
-                                {#<input type="file" name="img[]" class="file-upload-default">#}
-                                {#<div class="input-group col-xs-12">#}
-                                    {#{{ form_widget(form.img) }}#}
-                                    {#<span class="input-group-append">#}
-                                        {#<button class="file-upload-browse btn btn-info" type="button">Upload</button>#}
-                                    {#</span>#}
-                                {#</div>#}
-                            {#</div>#}
                             <button type="submit" class="btn btn-success mr-2">Envoyer</button>
                             {{ form_end(form) }}
                         </div>
