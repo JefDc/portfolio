@@ -1,22 +1,30 @@
 {% block body %}
     <footer class="footer-section spad">
         <div class="container text-center">
-            <h2>Let’s work together!</h2>
-            <p>office@template.com</p>
+            {#<h2>Let’s work together!</h2>#}
+            {#<p>office@template.com</p>#}
             <div class="social">
-                <a href="#"><i class="fa fa-pinterest"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a> </br>
-
+                {% for extra in extras %}
+                    <div class="justify-content-center">
+                        <a href="{{ extra.github }}"><i class="fa fa-github fa-4x text-white" aria-hidden="true"></i></a>
+                        <a href="{{ extra.linkedin }}"><i class="fa fa-facebook fa-4x"></i></a>
+                        <a href="{{ extra.twitter }}"><i class="fa fa-twitter fa-4x"></i></a>
+                    </div>
+                {% endfor %}
 
                 </br><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                Copyright &copy;<script>
+                    document.write(new Date().getFullYear());
+                </script>
+                All rights reserved | This template is made with
+                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                by
+                <a href="https://colorlib.com" target="_blank">Colorlib
+                </a>
+                <p class="text-white small mb-0 textFooter"> edited by Jef De CONTI</p>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 
             </div>
         </div>
-
-
     </footer>
 {% endblock %}

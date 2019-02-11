@@ -80,13 +80,13 @@ ol {
 	Helper CSS
 -----------------------*/
 .spad {
-	padding-top: 130px;
-	padding-bottom: 130px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 }
 
 .sp-pad {
-	padding-left: 150px;
-	padding-right: 150px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .sp-sub-title {
