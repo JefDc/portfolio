@@ -7,56 +7,16 @@
                     <div class="col-8 grid-margin mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">A propos</h4>
+                                <h4 class="card-title">Extra</h4>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subTitle">
-                                            <h4 class="card-title text-center mb-5">Contact</h4>
+                                            <h4 class="card-title text-center m-5">{{ extra.titleSkill }}</h4>
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Sous titre :</label>
+                                                <label class="col-sm-3 col-form-label">Titre :</label>
                                                 <div class="col-sm-9">
-                                                    {{ extra.subTitleContact }}
+                                                    {{ extra.titleSkill }}
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Téléphone :</label>
-                                            <div class="col-sm-9">
-                                                {{ extra.numberPhone }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Adresse :</label>
-                                            <div class="col-sm-9">
-                                                {{ extra.address }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Email :</label>
-                                            <div class="col-sm-9">
-                                                {{ extra.email }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Texte :</label>
-                                            <div class="col-sm-9">
-                                                {{ extra.textContact[:300] ~ '...' }}
                                             </div>
                                         </div>
                                     </div>
@@ -90,20 +50,6 @@
                                             <label class="col-sm-3 col-form-label">Text :</label>
                                             <div class="col-sm-9">
                                                 {{ extra.textSoftSkill[:300] ~ '...' }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="subTitle">
-                                            <h4 class="card-title text-center m-5">Contact</h4>
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Image :</label>
-                                                <div class="col-sm-9">
-                                                    <img class="img-fluid img-thumbnail sizePictureTab"
-                                                         src="/home/img/extra/{{ extra.imgContact }}" alt="jef dc">
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

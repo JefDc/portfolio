@@ -39,11 +39,6 @@ class Extra
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $subTitleAboutUs;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $github;
 
     /**
@@ -105,18 +100,6 @@ class Extra
     public function setTitleSkill(string $titleSkill): self
     {
         $this->titleSkill = $titleSkill;
-
-        return $this;
-    }
-
-    public function getSubTitleAboutUs(): ?string
-    {
-        return $this->subTitleAboutUs;
-    }
-
-    public function setSubTitleAboutUs(string $subTitleAboutUs): self
-    {
-        $this->subTitleAboutUs = $subTitleAboutUs;
 
         return $this;
     }

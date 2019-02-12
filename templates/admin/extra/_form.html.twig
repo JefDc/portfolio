@@ -9,33 +9,6 @@
                             <h4 class="card-title">Extra</h4>
                             {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
                             <div class="subTitle">
-                                <h4 class="card-title text-center mb-4">Contact</h4>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputName1">Titre</label>
-                                {{ form_widget(form.titleContact) }}
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputName1">Sous titre</label>
-                                {{ form_widget(form.subTitleContact) }}
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputName1">Téléphone</label>
-                                {{ form_widget(form.numberPhone) }}
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail3">Adresse</label>
-                                {{ form_widget(form.address) }}
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword4">Email</label>
-                                {{ form_widget(form.email) }}
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword4">Texte</label>
-                                {{ form_widget(form.textContact) }}
-                            </div>
-                            <div class="subTitle">
                                 <h4 class="card-title text-center m-4">Skill</h4>
                             </div>
                             <div class="form-group">
@@ -46,36 +19,16 @@
                                 <h4 class="card-title text-center m-4">Soft skill</h4>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputName1">Titre</label>
-                                {{ form_widget(form.titleSoftSkill) }}
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputName1">Sous titre</label>
                                 {{ form_widget(form.subTitleSoftSkill) }}
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputName1">Titre</label>
+                                {{ form_widget(form.titleSoftSkill) }}
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputPassword4">Text</label>
                                 {{ form_widget(form.textSoftSkill) }}
-                            </div>
-                            <div class="subTitle">
-                                <h4 class="card-title text-center m-4">A propos</h4>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword4">Sous titre</label>
-                                {{ form_widget(form.subTitleAboutUs) }}
-                            </div>
-                            <div class="subTitle">
-                                <h4 class="card-title text-center m-4">Contact</h4>
-                            </div>
-                            <div class="form-group">
-                                <label>Photo ( 1920 X 751 )</label>
-                                <input type="file" name="img[]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    {{ form_widget(form.imgContact) }}
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                                    </span>
-                                </div>
                             </div>
                             <div class="subTitle">
                                 <h4 class="card-title text-center m-4">Footer</h4>

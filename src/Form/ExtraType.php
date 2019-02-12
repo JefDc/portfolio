@@ -15,41 +15,10 @@ class ExtraType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numberPhone', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('address', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('email', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('textContact', TextareaType::class, [
-                'attr' => [
-                    'class' => 'form-control',
-                    'rows' => '10'
-                ]
-            ])
             ->add('textSoftSkill', TextareaType::class, [
                 'attr' => [
                     'class' => 'form-control',
                     'rows' => "10"
-                ]
-            ])
-            ->add('titleContact', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('subTitleContact', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
                 ]
             ])
             ->add('titleSoftSkill', TextType::class, [
@@ -67,11 +36,6 @@ class ExtraType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('subTitleAboutUs', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
             ->add('github', TextType::class, [
                 'attr' => [
                     'class' => 'form-control'
@@ -83,12 +47,6 @@ class ExtraType extends AbstractType
                 ]
             ])
             ->add('twitter', TextType::class, [
-                'attr' => [
-                    'class' => 'form-control'
-                ]
-            ])
-            ->add('imgContact', FileType::class, [
-                'data_class' => null,
                 'attr' => [
                     'class' => 'form-control'
                 ]
