@@ -23,7 +23,13 @@ class AboutUsType extends AbstractType
                 'attr' => [
                     'class' => 'form-control'
                 ]
-            ]);
+            ])
+            ->add('subTitle', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -9,11 +9,15 @@
                             <h4 class="card-title">A propos</h4>
                             {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
                             <div class="form-group">
-                                <label for="exampleInputName1">Name</label>
+                                <label for="exampleInputName1">Sous tire</label>
+                                {{ form_widget(form.subTitle) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Titre</label>
                                 {{ form_widget(form.title) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail3">Title</label>
+                                <label for="exampleInputEmail3">Texte</label>
                                 {{ form_widget(form.content) }}
                             </div>
                             <button type="submit" class="btn btn-success mr-2">Submit</button>

@@ -4,18 +4,11 @@
             <div class="row">
                 <div class="col-xl-12 intro-text">
                     {% for aboutus in intro %}
-                        {% for extra in extras %}
-                            <span class="sp-sub-title">{{ extra.subTitleAboutUs }}</span>
-                        {% endfor %}
+                        <span class="sp-sub-title">{{ aboutus.subTitle }}</span>
                     <h3 class="sp-title">{{ aboutus.title }}</h3>
                     <p>{{ aboutus.content }}</p>
                     {% endfor %}
                 </div>
-                {#<div class="col-xl-7 offset-xl-1">#}
-                    {#<figure class="intro-img mt-5 mt-xl-0">#}
-                        {#<img src="home/img/intro.jpg" alt="">#}
-                    {#</figure>#}
-                {#</div>#}
             </div>
         </div>
     </section>

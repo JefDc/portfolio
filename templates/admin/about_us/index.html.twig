@@ -1,39 +1,51 @@
 {% extends 'admin/base.html.twig' %}
 {% block body %}
-<div class="main-panel">
-    <div class="content-wrapper">
-        <div class="row justify-content-center">
-            <div class="col-8 grid-margin mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-title">A propos</h4>
-                        {% for aboutus in aboutuses %}
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Titre :</label>
-                                    <div class="col-sm-9">
-                                        {{ aboutus.title }}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-8 grid-margin mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">A propos</h4>
+                            {% for aboutus in aboutuses %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Sous titre:</label>
+                                            <div class="col-sm-9">
+                                                {{ aboutus.subTitle }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Texte :</label>
-                                    <div class="col-sm-9">
-                                        {{ aboutus.content }}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Titre :</label>
+                                            <div class="col-sm-9">
+                                                {{ aboutus.title }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <a href="{{ path('about_us_edit', {'id' : aboutus.id}) }}"><button type="submit" class="btn btn-success mr-2">Éditer</button></a>
-                        {% endfor %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Texte :</label>
+                                            <div class="col-sm-9">
+                                                {{ aboutus.content }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('about_us_edit', {'id' : aboutus.id}) }}">
+                                    <button type="submit" class="btn btn-success mr-2">Éditer</button>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock %}
+{% endblock %}
