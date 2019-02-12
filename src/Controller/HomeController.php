@@ -25,6 +25,7 @@ class HomeController extends AbstractController
     {
         // Send message
         $message = new Contact();
+        $message->setDate(new \DateTime('now'));
         $form = $this->createForm(ContactType::class, $message);
         $form->handleRequest($request);
 
