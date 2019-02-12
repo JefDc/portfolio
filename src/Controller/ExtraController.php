@@ -34,11 +34,6 @@ class ExtraController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $extra->getImgContact();
-            $fileName = md5(uniqid()). '-contact.' .$file->guessExtension();
-            $file->move($this->getParameter('upload_contact_directory'), $fileName);
-            $extra->setImgContact($fileName);
-
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('extra_index', [

@@ -1,45 +1,45 @@
 {% block body %}
-    {% for extra in extras %}
-    <section class="contact-section set-bg spad" data-setbg="home/img/extra/{{ extra.imgContact }}" id="contact">
+    {% for contact in contacts %}
+        <section class="contact-section set-bg spad" data-setbg="home/img/contact/{{ contact.img }}" id="contact">
     {% endfor %}
-                {% include 'home/flash_message.html.twig' %}
-        <div class="container-fluid contact-warp">
-            <div class="row justify-content-center">
-            </div>
-            {% for extra in extras %}
+    {% include 'home/flash_message.html.twig' %}
+    <div class="container-fluid contact-warp">
+        <div class="row justify-content-center">
+        </div>
+        {% for contact in contacts %}
             <div class="contact-text">
                 <div class="container p-0">
-                    <span class="sp-sub-title">{{ extra.subTitleContact }}</span>
-                    <h3 class="sp-title">{{ extra.titleContact }}</h3>
-                    <p>{{ extra.textContact }}</p>
+                    <span class="sp-sub-title">{{ contact.subTitle }}</span>
+                    <h3 class="sp-title">{{ contact.title }}</h3>
+                    <p>{{ contact.text }}</p>
                     <ul class="con-info">
-                        <li><i class="flaticon-phone-call"></i>{{ extra.numberPhone }}</li>
-                        <li><i class="flaticon-envelope"></i>{{ extra.email }}</li>
-                        <li><i class="flaticon-placeholder"></i>{{ extra.address }}</li>
+                        <li><i class="flaticon-phone-call"></i>{{ contact.phone }}</li>
+                        <li><i class="flaticon-envelope"></i>{{ contact.email }}</li>
+                        <li><i class="flaticon-placeholder"></i>{{ contact.address }}</li>
                     </ul>
                 </div>
             </div>
-            {% endfor %}
-            <div class="container p-0">
-                <div class="row">
-                    <div class="col-xl-8 offset-xl-4">
-                        {{ form_start(form, {'attr' : {'class' : 'contact-form'}}) }}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {{ form_widget(form.name) }}
-                                </div>
-                                <div class="col-md-6">
-                                    {{ form_widget(form.email) }}
-                                </div>
-                                <div class="col-md-12">
-                                    {{ form_widget(form.message) }}
-                                    <button class="site-btn light">Envoyer</button>
-                                </div>
-                            </div>
-                        {{ form_end(form) }}
+        {% endfor %}
+        <div class="container p-0">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-4">
+                    {{ form_start(form, {'attr' : {'class' : 'contact-form'}}) }}
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{ form_widget(form.name) }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form_widget(form.email) }}
+                        </div>
+                        <div class="col-md-12">
+                            {{ form_widget(form.message) }}
+                            <button class="site-btn light">Envoyer</button>
+                        </div>
                     </div>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
+    </div>
     </section>
 {% endblock %}

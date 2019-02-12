@@ -19,7 +19,7 @@ class Contact
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $phone;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -27,65 +27,148 @@ class Contact
     private $email;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
-    private $message;
+    private $address;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      */
-    private $date;
+    private $title;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $subTitle;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $text;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $img;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    /**
+     * @return mixed
+     */
+    public function getPhone()
     {
-        return $this->name;
+        return $this->phone;
     }
 
-    public function setName(string $name): self
+    /**
+     * @param mixed $phone
+     */
+    public function setPhone($phone): void
     {
-        $this->name = $name;
-
-        return $this;
+        $this->phone = $phone;
     }
 
-    public function getEmail(): ?string
+    /**
+     * @return mixed
+     */
+    public function getEmail()
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
     {
         $this->email = $email;
-
-        return $this;
     }
 
-    public function getMessage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getAddress()
     {
-        return $this->message;
+        return $this->address;
     }
 
-    public function setMessage(string $message): self
+    /**
+     * @param mixed $address
+     */
+    public function setAddress($address): void
     {
-        $this->message = $message;
-
-        return $this;
+        $this->address = $address;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    /**
+     * @return mixed
+     */
+    public function getTitle()
     {
-        return $this->date;
+        return $this->title;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    /**
+     * @param mixed $title
+     */
+    public function setTitle($title): void
     {
-        $this->date = $date;
-
-        return $this;
+        $this->title = $title;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSubTitle()
+    {
+        return $this->subTitle;
+    }
+
+    /**
+     * @param mixed $subTitle
+     */
+    public function setSubTitle($subTitle): void
+    {
+        $this->subTitle = $subTitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     */
+    public function setText($text): void
+    {
+        $this->text = $text;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param mixed $img
+     */
+    public function setImg($img): void
+    {
+        $this->img = $img;
+    }
+
+
+
 }

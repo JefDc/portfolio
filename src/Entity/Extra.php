@@ -17,39 +17,9 @@ class Extra
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $numberPhone;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $textContact;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $textSoftSkill;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $titleContact;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $subTitleContact;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -86,62 +56,9 @@ class Extra
      */
     private $twitter;
 
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $imgContact;
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNumberPhone(): ?string
-    {
-        return $this->numberPhone;
-    }
-
-    public function setNumberPhone(string $numberPhone): self
-    {
-        $this->numberPhone = $numberPhone;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getTextContact(): ?string
-    {
-        return $this->textContact;
-    }
-
-    public function setTextContact(string $textContact): self
-    {
-        $this->textContact = $textContact;
-
-        return $this;
     }
 
     public function getTextSoftSkill(): ?string
@@ -152,30 +69,6 @@ class Extra
     public function setTextSoftSkill(string $textSoftSkill): self
     {
         $this->textSoftSkill = $textSoftSkill;
-
-        return $this;
-    }
-
-    public function getTitleContact(): ?string
-    {
-        return $this->titleContact;
-    }
-
-    public function setTitleContact(string $titleContact): self
-    {
-        $this->titleContact = $titleContact;
-
-        return $this;
-    }
-
-    public function getSubTitleContact(): ?string
-    {
-        return $this->subTitleContact;
-    }
-
-    public function setSubTitleContact(string $subTitleContact): self
-    {
-        $this->subTitleContact = $subTitleContact;
 
         return $this;
     }
@@ -264,15 +157,4 @@ class Extra
         return $this;
     }
 
-    public function getImgContact()
-    {
-        return $this->imgContact;
-    }
-
-    public function setImgContact($imgContact): self
-    {
-        $this->imgContact = $imgContact;
-
-        return $this;
-    }
 }

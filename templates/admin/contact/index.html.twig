@@ -1,66 +1,92 @@
 {% extends 'admin/base.html.twig' %}
 {% block body %}
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="row justify-content-center">
-                <div class="col-lg-12 grid-margin stretch-card mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Message</h4>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>
-                                            Nom
-                                        </th>
-                                        <th>
-                                            Email
-                                        </th>
-                                        <th>
-                                            Message
-                                        </th>
-                                        <th>
-                                            Action
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for contact in contacts %}
-                                        <tr>
-                                            <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.name }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.email }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.message[:100] ~ '...'  }}
-                                                </a>
-                                            </td>
-                                            <td>
-                                                <div class="delete">
-                                                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">
-                                                        <i class="mdi mdi-pencil-box-outline text-gray"></i>
-                                                    </a>
-                                                    {{ include('/admin/contact/_delete_form.html.twig') }}
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-6 grid-margin mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Contact</h4>
+                        {% for contact in contacts %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Téléphone :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.phone }}
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Email :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.email }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Adresse :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.address }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Titre :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.title }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Sous titre :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.subTitle }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Texte :</label>
+                                    <div class="col-sm-9">
+                                        {{ contact.text }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label pl-4">Photo :</label>
+                                    <div class="col-sm-9">
+                                        <img class="img-fluid img-thumbnail sizePictureTab"
+                                             src="/home/img/contact/{{ contact.img }}" alt="jef dc">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ path('contact_edit', {'id' : contact.id}) }}">
+                            <button type="submit" class="btn btn-success ml-3 mt-3">Éditer</button>
+                        </a>
+                        {% endfor %}
                         </div>
                     </div>
                 </div>
             </div>
-            {#<a class="mdi mdi-playlist-plus text-gray" href="{{ path('portfolio_new') }}">Créer</a>#}
         </div>
     </div>
-{% endblock %}
+    {% endblock %}

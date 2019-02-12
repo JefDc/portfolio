@@ -68,6 +68,11 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $contact->getImg();
+            $fileName = md5(uniqid()). '-contact.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_contact_directory'), $fileName);
+            $contact->setImg($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('contact_index', [

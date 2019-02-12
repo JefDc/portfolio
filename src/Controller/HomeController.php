@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Contact;
+use App\Entity\Message;
 use App\Form\ContactType;
+use App\Form\MessageType;
 use App\Repository\AboutUsRepository;
+use App\Repository\ContactRepository;
 use App\Repository\ExtraRepository;
 use App\Repository\IntroRepository;
 use App\Repository\PortfolioRepository;
@@ -21,12 +24,13 @@ class HomeController extends AbstractController
      */
     public function index(SkillRepository $skillRepository, IntroRepository $introRepository,
                           PortfolioRepository $portfolioRepository, AboutUsRepository $aboutUsRepository,
-                          SoftSkillRepository $softSkillRepository, Request $request, ExtraRepository $extraRepository)
+                          SoftSkillRepository $softSkillRepository, Request $request, ExtraRepository $extraRepository,
+                          ContactRepository $contactRepository)
     {
         // Send message
-        $message = new Contact();
+        $message = new Message();
         $message->setDate(new \DateTime('now'));
-        $form = $this->createForm(ContactType::class, $message);
+        $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -50,7 +54,8 @@ class HomeController extends AbstractController
             'intro' => $aboutUsRepository->findAll(),
             'soft_skills' => $softSkillRepository->findAll(),
             'form' => $form->createView(),
-            'extras' => $extraRepository->findAll()
+            'extras' => $extraRepository->findAll(),
+            'contacts' => $contactRepository->findAll()
         ]);
     }
 }

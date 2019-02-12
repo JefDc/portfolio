@@ -30,34 +30,34 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    {% for contact in contacts %}
+                                    {% for message in messages %}
                                         <tr>
                                             <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.name }}
+                                                <a class="text-black" href="{{ path('message_show', {'id' : message.id}) }}">
+                                                    {{ message.name }}
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.email }}
+                                                <a class="text-black" href="{{ path('message_show', {'id' : message.id}) }}">
+                                                    {{ message.email }}
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.message[:100] ~ '...'  }}
+                                                <a class="text-black" href="{{ path('message_show', {'id' : message.id}) }}">
+                                                    {{ message.message[:100] ~ '...'  }}
                                                 </a>
                                             </td>
                                             <td>
-                                                <a class="text-black" href="{{ path('contact_show', {'id' : contact.id}) }}">
-                                                    {{ contact.date|date ('d/m/Y  H:i') }}
+                                                <a class="text-black" href="{{ path('message_show', {'id' : message.id}) }}">
+                                                    {{ message.date|date ('d/m/Y  H:i') }}
                                                 </a>
                                             </td>
                                             <td>
                                                 <div class="delete">
-                                                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">
+                                                    <a href="{{ path('message_edit', {'id': message.id}) }}">
                                                         <i class="mdi mdi-pencil-box-outline text-gray"></i>
                                                     </a>
-                                                    {{ include('/admin/contact/_delete_form.html.twig') }}
+                                                    {{ include('/admin/message/_delete_form.html.twig') }}
                                                 </div>
                                             </td>
                                         </tr>
