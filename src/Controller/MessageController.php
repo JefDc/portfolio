@@ -15,38 +15,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class MessageController extends AbstractController
 {
-    /**
-     * @Route("/", name="message_index", methods={"GET"})
-     */
-    public function index(MessageRepository $messageRepository): Response
-    {
-        return $this->render('/admin/message/index.html.twig', [
-            'messages' => $messageRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="message_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $message = new Message();
-        $form = $this->createForm(MessageType::class, $message);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($message);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('message_index');
-        }
-
-        return $this->render('/admin/message/new.html.twig', [
-            'message' => $message,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="message_show", methods={"GET"})
@@ -55,28 +23,6 @@ class MessageController extends AbstractController
     {
         return $this->render('/admin/message/show.html.twig', [
             'message' => $message,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="message_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Message $message): Response
-    {
-        $form = $this->createForm(MessageType::class, $message);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('message_index', [
-                'id' => $message->getId(),
-            ]);
-        }
-
-        return $this->render('/admin/message/edit.html.twig', [
-            'message' => $message,
-            'form' => $form->createView(),
         ]);
     }
 

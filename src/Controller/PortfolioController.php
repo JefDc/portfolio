@@ -55,16 +55,6 @@ class PortfolioController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="portfolio_show", methods={"GET"})
-     */
-    public function show(Portfolio $portfolio): Response
-    {
-        return $this->render('/admin/portfolio/show.html.twig', [
-            'portfolio' => $portfolio,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="portfolio_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Portfolio $portfolio): Response
