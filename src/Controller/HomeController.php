@@ -32,7 +32,6 @@ class HomeController extends AbstractController
         $message->setDate(new \DateTime('now'));
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($message);
@@ -42,7 +41,7 @@ class HomeController extends AbstractController
             $message = new Contact();
             $form = $this->createForm( ContactType::class, $message);
 
-            $this->addFlash('success', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
+            $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
 
             return $this->redirectToRoute('home', ['_fragment' => 'contact']);
         }

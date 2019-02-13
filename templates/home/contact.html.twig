@@ -2,8 +2,12 @@
     {% for contact in contacts %}
         <section class="contact-section set-bg spad" data-setbg="home/img/contact/{{ contact.img }}" id="contact">
     {% endfor %}
-    {% include 'home/flash_message.html.twig' %}
     <div class="container-fluid contact-warp">
+        <div class="justify-content-center">
+            <div class="">
+                {% include 'home/flash_message.html.twig' %}
+            </div>
+        </div>
         <div class="row justify-content-center">
         </div>
         {% for contact in contacts %}

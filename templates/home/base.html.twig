@@ -34,5 +34,11 @@
         <script src="home/js/mixitup.min.js"></script>
         <script src="home/js/circle-progress.min.js"></script>
         <script src="home/js/main.js"></script>
+        <!-- auto close message flash -->
+        <script>
+            $("#success-alert").fadeTo(2000, 500).slideUp(500, function(){
+                $("#success-alert").slideUp(1000);
+            });
+        </script>
     </body>
 </html>
