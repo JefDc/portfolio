@@ -14,7 +14,7 @@
             <li class="nav-item dropdown d-none d-xl-inline-block">
                 <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                     <span class="profile-text">Bonjour, {{ app.user.name }} !</span>
-                    <img class="img-xs rounded-circle" src="home/img/user/{{ app.user.img }}" alt="Profile image">
+                    <img class="img-xs rounded-circle" src="/home/img/user/{{ app.user.img }}" alt="Profile image">
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown p-1" aria-labelledby="UserDropdown">
                     <a class="dropdown-item" href="{{ path('user_show', {'id' : app.user.id}) }}">
