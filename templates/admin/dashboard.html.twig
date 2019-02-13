@@ -16,8 +16,7 @@
                                     <div class="ticket-details col-md-9">
                                         <div class="d-flex">
                                             <p class="text-dark font-weight-semibold mr-2 mb-0 no-wrap">{{ message.name }}
-                                                <a class="text-gray linkEmail" href="{{ message.email }}">({{ message.email }}) :</a></p>
-                                            {#<a class="mb-0 ellipsis">Donec rutrum congue leo eget malesuada.</a>#}
+                                                <a class="text-gray linkEmail" href="mailto:">({{ message.email }}) :</a></p>
                                         </div>
                                         <p class="text-gray ellipsis mb-2">
                                             {{ message.message }}
@@ -34,11 +33,12 @@
                                     <div class="ticket-actions col-md-2">
                                         <div class="btn-group dropdown">
                                             <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Manage
+                                                Action
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fa fa-reply fa-fw"></i>Reponse</a>
+                                                <a href="{{ path('message_show', {'id' : message.id}) }}">
+                                                    <button class="btn btn-link text-black ml-3">Repondre</button>
+                                                </a>
                                                 <a class="dropdown-item" href="{{ path('message_delete', {'id' : message.id}) }}">
                                                     {% include ('/admin/message/_delete_form.html.twig') %}
                                                 </a>
@@ -57,7 +57,7 @@
         <footer class="footer">
             <div class="container-fluid clearfix">
             <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash edited by Jef De CONTI</a>. All rights reserved.</span>
                 <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
               <i class="mdi mdi-heart text-danger"></i>
             </span>
