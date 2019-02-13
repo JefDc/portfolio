@@ -1,6 +1,17 @@
-{#{% extends 'base.html.twig' %}#}
-
-{% block title %}Log in!{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/admin/iconfonts/mdi/css/materialdesignicons.min.css">
+    {#<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">#}
+    {#<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">#}
+    <link rel="stylesheet" href="/admin/css/style.css">
+    <link rel="stylesheet" href="/admin/css/style2.css">
+    <!-- endinject -->
+    {#<link rel="shortcut icon" href="images/favicon.png" />#}
+</head>
 
 {% block body %}
     <div class="container-scroller">
@@ -8,32 +19,36 @@
             <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
                 <div class="row w-100">
                     <div class="col-lg-4 mx-auto">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
                         <div class="auto-form-wrapper">
-                            <form action="#">
+                            <form method="post">
                                 <div class="form-group">
-                                    <label class="label">Username</label>
+                                    <label class="label">Nom</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Username">
+                                        <input type="text" value="{{ last_username }}" name="name" class="form-control" placeholder="name">
                                         <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-check-circle-outline"></i>
-                      </span>
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label">Password</label>
+                                    <label class="label">Mot de passe</label>
                                     <div class="input-group">
-                                        <input type="password" class="form-control" placeholder="*********">
+                                        <input type="password" name="password" class="form-control" placeholder="*********">
                                         <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-check-circle-outline"></i>
-                      </span>
+                                            <span class="input-group-text">
+                                                <i class="mdi mdi-check-circle-outline"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                                 <div class="form-group">
-                                    <button class="btn btn-primary submit-btn btn-block">Login</button>
+                                    <button class="btn btn-primary submit-btn btn-block" type="submit">Login</button>
                                 </div>
                                 <div class="form-group d-flex justify-content-between">
                                     {#<a href="#" class="text-small forgot-password text-black">Forgot Password</a>#}
@@ -63,7 +78,7 @@
            {#value="{{ csrf_token('authenticate') }}"#}
     {#>#}
 
-    {##}
+
         {#Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
         {#See https://symfony.com/doc/current/security/remember_me.html#}
 
@@ -72,7 +87,7 @@
                 {#<input type="checkbox" name="_remember_me"> Remember me#}
             {#</label>#}
         {#</div>#}
-    {##}
+
 
     {#<button class="btn btn-lg btn-primary" type="submit">#}
         {#Sign in#}
