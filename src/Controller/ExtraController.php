@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Extra;
+use App\Entity\User;
 use App\Form\ExtraType;
+use App\Form\UserType;
 use App\Repository\ExtraRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -43,7 +46,7 @@ class ExtraController extends AbstractController
 
         return $this->render('/admin/extra/_form.html.twig', [
             'extra' => $extra,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 

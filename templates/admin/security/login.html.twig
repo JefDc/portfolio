@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin</title>
     <link rel="stylesheet" href="/admin/iconfonts/mdi/css/materialdesignicons.min.css">
-    {#<link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">#}
-    {#<link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">#}
     <link rel="stylesheet" href="/admin/css/style.css">
     <link rel="stylesheet" href="/admin/css/style2.css">
-    <!-- endinject -->
-    {#<link rel="shortcut icon" href="images/favicon.png" />#}
+
 </head>
 
 {% block body %}
@@ -20,7 +17,7 @@
                 <div class="row w-100">
                     <div class="col-lg-4 mx-auto">
                         {% if error %}
-                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            <div class="alert alert-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                         {% endif %}
                         <div class="auto-form-wrapper">
                             <form method="post">
@@ -59,38 +56,6 @@
                     </div>
                 </div>
             </div>
-            <!-- content-wrapper ends -->
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
-{#<form method="post">#}
-    {#{% if error %}#}
-        {#<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>#}
-    {#{% endif %}#}
-
-    {#<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>#}
-    {#<label for="inputName" class="sr-only">Name</label>#}
-    {#<input type="text" value="{{ last_username }}" name="name" id="inputName" class="form-control" placeholder="Name" required autofocus>#}
-    {#<label for="inputPassword" class="sr-only">Password</label>#}
-    {#<input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>#}
-
-    {#<input type="hidden" name="_csrf_token"#}
-           {#value="{{ csrf_token('authenticate') }}"#}
-    {#>#}
-
-
-        {#Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.#}
-        {#See https://symfony.com/doc/current/security/remember_me.html#}
-
-        {#<div class="checkbox mb-3">#}
-            {#<label>#}
-                {#<input type="checkbox" name="_remember_me"> Remember me#}
-            {#</label>#}
-        {#</div>#}
-
-
-    {#<button class="btn btn-lg btn-primary" type="submit">#}
-        {#Sign in#}
-    {#</button>#}
-{#</form>#}
 {% endblock %}

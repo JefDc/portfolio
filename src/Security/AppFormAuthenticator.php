@@ -70,7 +70,7 @@ class AppFormAuthenticator extends AbstractFormLoginAuthenticator
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Name could not be found.');
+            throw new CustomUserMessageAuthenticationException('Identifiants invalides.');
         }
 
         return $user;

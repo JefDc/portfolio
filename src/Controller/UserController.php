@@ -73,6 +73,11 @@ class UserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $user->getImg();
+            $fileName = md5(uniqid()). '-user.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_user_directory'), $fileName);
+            $user->setImg($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_index', [
