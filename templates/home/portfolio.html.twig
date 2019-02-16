@@ -3,7 +3,7 @@
         <div class="portfolio-warp">
             {% for portfolio in portfolios %}
             <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}">
-                <a href="https://wildcodeschool.github.io/lyon-0918-portfolio/page3.html" class="portfolio-info">
+                <a href="{{ portfolio.link }}" class="portfolio-info">
                     <div class="pfbg set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}"></div>
                     <h5>{{ portfolio.title }}</h5>
                     <p>{{ portfolio.subTitle }}</p>
