@@ -17,6 +17,9 @@ security:
             security: false
         main:
             anonymous: true
+
+            form_login: true
+
             guard:
                 authenticators:
                     - App\Security\AppFormAuthenticator
