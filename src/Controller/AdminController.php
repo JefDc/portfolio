@@ -10,12 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin/dashboard", name="admin_dashboard")
      */
     public function index(MessageRepository $messageRepository)
     {
 
-        return $this->render('admin/dashboard.html.twig', [
+        return $this->render('admin/dashboard/index.html.twig', [
             'messages' => $messageRepository->findBy([], ['id' => 'DESC'])
 
         ]);
