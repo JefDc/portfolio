@@ -7,7 +7,9 @@
                         <span class="sp-sub-title">{{ aboutus.subTitle }}</span>
                         <h3 class="sp-title">{{ aboutus.title }}</h3>
                         <p>{{ aboutus.content }}</p>
-                        <button class="site-btn dark mb-5">Télécharger mon cv</button>
+                        <a href="/home/img/cv/{{ aboutus.cv }}" download="{{ aboutus.cv }}">
+                            <button class="site-btn dark mb-5">Télécharger mon cv</button>
+                        </a>
                     {% endfor %}
                 </div>
             </div>
