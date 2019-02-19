@@ -34,6 +34,11 @@ class AboutUsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $aboutU->getCv();
+            $fileName = 'cv De CONTI.' .$file->guessExtension();
+            $file->move($this->getParameter('upload_cv_directory'), $fileName);
+            $aboutU->setCv($fileName);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('about_us_index', [
