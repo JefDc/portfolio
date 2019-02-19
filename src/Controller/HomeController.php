@@ -48,7 +48,7 @@ class HomeController extends AbstractController
                 $em->flush();
             } else {
                 if (in_array("missing-input-response", $resp->getErrorCodes())) {
-                    $this->addFlash('danger', "Test validation pas bonne !!!");
+                    $this->addFlash('danger', "Erreur test de validation !!!");
                 }
             }
 
