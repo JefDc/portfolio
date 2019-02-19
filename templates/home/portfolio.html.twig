@@ -3,7 +3,7 @@
         <div class="portfolio-warp">
             {% for portfolio in portfolios %}
             <div class="single-portfolio set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}">
-                <a href="{{ portfolio.link }}" class="portfolio-info">
+                <a href="http://{{ portfolio.link }}" class="portfolio-info">
                     <div class="pfbg set-bg" data-setbg="home/img/portfolio/{{ portfolio.img }}"></div>
                     <h5>{{ portfolio.title }}</h5>
                     <p>{{ portfolio.subTitle }}</p>
