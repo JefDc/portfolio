@@ -16,6 +16,7 @@ use App\Repository\SoftSkillRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use ReCaptcha\ReCaptcha;
 
 class HomeController extends AbstractController
 {
@@ -34,9 +35,21 @@ class HomeController extends AbstractController
         $form = $this->createForm(MessageType::class, $message);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($message);
-            $em->flush();
+
+            $recaptcha = new ReCaptcha('6Lf-fJIUAAAAADRpm0MvJgc_GJ9pnlbdiSUXo44R');
+            $resp = $recaptcha->verify($request->get("g-recaptcha-response"));
+
+            if ($resp->isSuccess()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($message);
+                $em->flush();
+            } else {
+                if (in_array("missing-input-response", $resp->getErrorCodes())) {
+                    $this->addFlash('danger', "Test validation pas bonne !!!");
+                }
+            }
+
+
 
             // Reinit form for redirection
             $message = new Contact();
