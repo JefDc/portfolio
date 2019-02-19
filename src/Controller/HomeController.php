@@ -13,10 +13,11 @@ use App\Repository\IntroRepository;
 use App\Repository\PortfolioRepository;
 use App\Repository\SkillRepository;
 use App\Repository\SoftSkillRepository;
+use ReCaptcha\ReCaptcha;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use ReCaptcha\ReCaptcha;
+
 
 class HomeController extends AbstractController
 {
@@ -36,10 +37,12 @@ class HomeController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $recaptcha = new ReCaptcha('6Lf-fJIUAAAAADRpm0MvJgc_GJ9pnlbdiSUXo44R');
+            $recaptcha = new ReCaptcha("6Lf-fJIUAAAAADRpm0MvJgc_GJ9pnlbdiSUXo44R");
             $resp = $recaptcha->verify($request->get("g-recaptcha-response"));
 
             if ($resp->isSuccess()) {
+                $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
                 $em->flush();
@@ -49,13 +52,9 @@ class HomeController extends AbstractController
                 }
             }
 
-
-
             // Reinit form for redirection
             $message = new Contact();
             $form = $this->createForm( ContactType::class, $message);
-
-            $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
 
             return $this->redirectToRoute('home', ['_fragment' => 'contact']);
         }
