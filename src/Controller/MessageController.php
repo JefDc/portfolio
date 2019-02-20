@@ -37,6 +37,6 @@ class MessageController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('admin');
+        return $this->redirectToRoute('admin_dashboard');
     }
 }
