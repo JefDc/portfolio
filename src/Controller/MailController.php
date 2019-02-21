@@ -30,4 +30,27 @@ class MailController extends AbstractController
             );
         $mailer->send($mail);
     }
+
+    public function sendMailUser($name, $email)
+    {
+        $tranport = (new \Swift_SmtpTransport('smtp.ionos.fr', 587, 'tls'))
+            ->setUsername('contact@jef-dc.com')
+            ->setPassword('claude05dusky09');
+
+        $mailer = new \Swift_Mailer($tranport);
+
+        $mail = (new \Swift_Message('Merci de votre intérêt'))
+            ->setFrom(['contact@jef-dc.com' => 'jef-dc.com'])
+            ->setTo([$email => $name])
+            ->setCharset('UTF-8')
+            ->setContentType('text/html')
+            ->setBody(
+             $this->renderView('admin/mail/mailUser.html.twig',
+                 [
+                     'name' => $name
+                 ]
+             )
+         );
+        $mailer->send($mail);
+    }
 }

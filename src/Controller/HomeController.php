@@ -43,6 +43,7 @@ class HomeController extends AbstractController
             if ($resp->isSuccess()) {
                 $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
                 $mailController->sendMailMessageAdmin($message->getName(), $message->getMessage(), $message->getEmail());
+                $mailController->sendMailUser($message->getName(), $message->getEmail());
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
