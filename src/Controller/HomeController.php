@@ -28,7 +28,7 @@ class HomeController extends AbstractController
     public function index(SkillRepository $skillRepository, IntroRepository $introRepository,
                           PortfolioRepository $portfolioRepository, AboutUsRepository $aboutUsRepository,
                           SoftSkillRepository $softSkillRepository, Request $request, ExtraRepository $extraRepository,
-                          ContactRepository $contactRepository)
+                          ContactRepository $contactRepository, MailController $mailController)
     {
         // Send message
         $message = new Message();
@@ -42,6 +42,7 @@ class HomeController extends AbstractController
 
             if ($resp->isSuccess()) {
                 $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
+                $mailController->sendMailMessageAdmin($message->getName(), $message->getMessage(), $message->getEmail());
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($message);
