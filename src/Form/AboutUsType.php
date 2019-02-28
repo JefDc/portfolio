@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\AboutUs;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,6 +26,12 @@ class AboutUsType extends AbstractType
                 ]
             ])
             ->add('subTitle', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+            ->add('cv', FileType::class, [
+                'data_class' => null,
                 'attr' => [
                     'class' => 'form-control'
                 ]
