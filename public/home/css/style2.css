@@ -20,10 +20,3 @@
     filter: blur(20px);
     background-position: center center;
 }
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .alert {
-        width: 80%;
-        margin: auto;
-    }
-}
