@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin/extra")
@@ -64,9 +65,9 @@ class ExtraController extends AbstractController
     }
 
     /**
-     * @Route("/mail/{id}/edit", name="extra_mail_edit", methods={"GET", "POST"})
+     * @Route("/mail/{id}/edit", name="extra_mailSetting_edit", methods={"GET", "POST"})
      */
-    public function mailEdit(Request $request, MailSetting $mailSetting)
+    public function mailSettingEdit(Request $request, MailSetting $mailSetting)
     {
         $form = $this->createForm(MailSettingType::class, $mailSetting);
         $form->handleRequest($request);
@@ -79,7 +80,7 @@ class ExtraController extends AbstractController
             ]);
         }
 
-        return $this->render('/admin/extra/mail/_form.html.twig', [
+        return $this->render('/admin/extra/mail/_formSetting.html.twig', [
            'mailSetting' => $mailSetting,
            'form' => $form->createView()
         ]);

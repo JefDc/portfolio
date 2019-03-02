@@ -2,18 +2,35 @@
 
 namespace App\Controller;
 
+use App\Entity\MailSetting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
+
 
 class MailController extends AbstractController
 {
+
+    public function transport()
+    {
+        $mailSettingRepository = $this->getDoctrine()->getRepository(MailSetting::class);
+        $mailSetting = $mailSettingRepository->findOneBy(array('id' => 1));
+        $host = $mailSetting->getHost();
+        $port = $mailSetting->getPort();
+        $encryption = $mailSetting->getEncryption();
+        $username = $mailSetting->getUsername();
+        $password = $mailSetting->getPassword();
+
+        $transport = (new \Swift_SmtpTransport($host, $port, $encryption))
+            ->setUsername($username)
+            ->setPassword($password);
+
+        return $mailer = new \Swift_Mailer($transport);
+    }
+
+
     public function sendMailMessageAdmin($name, $message, $email)
     {
-        $transport = (new \Swift_SmtpTransport('smtp.ionos.fr', 587, 'tls'))
-            ->setUsername('contact@jef-dc.com')
-            ->setPassword('mAc&BellaDc81');
-
-        $mailer = new \Swift_Mailer($transport);
-
+        $mailer = $this->transport();
         $mail = (new \Swift_Message('Vous avez un nouveau message'))
             ->setFrom(['contact@jef-dc.com' => 'jef-dc.com'])
             ->setTo(['de.conti.jf@gmail.com' => 'Jef Dc'])
@@ -33,12 +50,7 @@ class MailController extends AbstractController
 
     public function sendMailUser($name, $email)
     {
-        $tranport = (new \Swift_SmtpTransport('smtp.ionos.fr', 587, 'tls'))
-            ->setUsername('contact@jef-dc.com')
-            ->setPassword('mAc&BellaDc81');
-
-        $mailer = new \Swift_Mailer($tranport);
-
+        $mailer = $this->transport();
         $mail = (new \Swift_Message('Merci de votre intérêt'))
             ->setFrom(['contact@jef-dc.com' => 'jef-dc.com'])
             ->setTo([$email => $name])

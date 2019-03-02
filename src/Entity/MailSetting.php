@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MailSettingRepository")
  */
@@ -38,6 +39,7 @@ class MailSetting
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @var string The hashed password
      */
     private $password;
 

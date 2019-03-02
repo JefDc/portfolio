@@ -10,6 +10,7 @@ use App\Repository\AboutUsRepository;
 use App\Repository\ContactRepository;
 use App\Repository\ExtraRepository;
 use App\Repository\IntroRepository;
+use App\Repository\MailSettingRepository;
 use App\Repository\PortfolioRepository;
 use App\Repository\SkillRepository;
 use App\Repository\SoftSkillRepository;
@@ -42,6 +43,7 @@ class HomeController extends AbstractController
 
             if ($resp->isSuccess()) {
                 $this->addFlash('light', 'Votre message a bien était envoyé. Je prendrai contact avec vous au plus tôt. Merci. ');
+
                 $mailController->sendMailMessageAdmin($message->getName(), $message->getMessage(), $message->getEmail());
                 $mailController->sendMailUser($message->getName(), $message->getEmail());
 

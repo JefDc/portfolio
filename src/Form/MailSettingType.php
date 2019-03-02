@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\MailSetting;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -15,7 +16,7 @@ class MailSettingType extends AbstractType
         $builder
             ->add('host', TextType::class, [
                 'attr' => [
-                    'class' => 'form-contol'
+                    'class' => 'form-control'
                 ]
             ])
             ->add('port', TextType::class, [
@@ -33,7 +34,7 @@ class MailSettingType extends AbstractType
                     'class' => 'form-control'
                 ]
             ])
-            ->add('password', TextType::class, [
+            ->add('password', PasswordType::class, [
                 'attr' => [
                     'class' => 'form-control'
                 ]

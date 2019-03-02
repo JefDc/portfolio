@@ -1,6 +1,6 @@
 {% extends 'admin/base.html.twig' %}
 {% block body %}
-    {#{% for extra in extras %}#}
+    {% for mailSetting in mailSettings %}
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row justify-content-center">
@@ -15,7 +15,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Host :</label>
                                                 <div class="col-sm-9">
-
+                                                    {{ mailSetting.host }}
                                                 </div>
                                             </div>
                                         </div>
@@ -26,7 +26,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Port :</label>
                                             <div class="col-sm-9">
-
+                                                {{ mailSetting.port }}
                                             </div>
                                         </div>
                                     </div>
@@ -36,7 +36,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Encryptage :</label>
                                             <div class="col-sm-9">
-
+                                                {{ mailSetting.encryption }}
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Utilisateur :</label>
                                             <div class="col-sm-9">
-
+                                                {{ mailSetting.username }}
                                             </div>
                                         </div>
                                     </div>
@@ -56,11 +56,14 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Mot de passe :</label>
                                             <div class="col-sm-9">
-
+                                                ***********
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <a href="{{ path('extra_mailSetting_edit', {'id' : mailSetting.id}) }}">
+                                    <button type="submit" class="btn btn-success mr-2">Éditer</button>
+                                </a>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subTitle">
@@ -147,7 +150,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {#<a href="{{ path('extra_edit', {'id' : extra.id}) }}">#}
+                                <a href="{{ path('extra_mailSetting_edit', {'id' : mailSetting.id}) }}">
                                     <button type="submit" class="btn btn-success mr-2">Éditer</button>
                                 </a>
                             </div>
@@ -156,7 +159,7 @@
                 </div>
             </div>
         </div>
-    {#{% endfor %}#}
+    {% endfor %}
 {% endblock %}
 
 
