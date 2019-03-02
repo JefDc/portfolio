@@ -1,6 +1,6 @@
 {% extends 'admin/base.html.twig' %}
 {% block body %}
-    {% for extra in extras %}
+    {#{% for extra in extras %}#}
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row justify-content-center">
@@ -15,7 +15,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Host :</label>
                                                 <div class="col-sm-9">
-                                                    {{ extra.titleSkill }}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -26,7 +26,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Port :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.subTitleSoftSkill }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -36,7 +36,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Encryptage :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.subTitleSoftSkill }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Utilisateur :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.subTitleSoftSkill }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -56,7 +56,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Mot de passe :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.subTitleSoftSkill }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Objet :</label>
                                                 <div class="col-sm-9">
-                                                    {{ extra.titleSoftSkill }}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.subTitleSoftSkill }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Nom du domaine :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.textSoftSkill[:300] ~ '...' }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Adresse mail de reception :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.textSoftSkill[:300] ~ '...' }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Nom de l'admin :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.textSoftSkill[:300] ~ '...' }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -121,7 +121,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Objet :</label>
                                                 <div class="col-sm-9">
-                                                    {{ extra.github }}
+
                                                 </div>
                                             </div>
                                         </div>
@@ -132,7 +132,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.linkedin }}
+
                                             </div>
                                         </div>
                                     </div>
@@ -142,12 +142,12 @@
                                         <div class="form-group row">
                                             <label class="col-sm-3 col-form-label">Nom du domaine :</label>
                                             <div class="col-sm-9">
-                                                {{ extra.twitter }}
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="{{ path('extra_edit', {'id' : extra.id}) }}">
+                                {#<a href="{{ path('extra_edit', {'id' : extra.id}) }}">#}
                                     <button type="submit" class="btn btn-success mr-2">Éditer</button>
                                 </a>
                             </div>
@@ -156,7 +156,7 @@
                 </div>
             </div>
         </div>
-    {% endfor %}
+    {#{% endfor %}#}
 {% endblock %}
 
 
