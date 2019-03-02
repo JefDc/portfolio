@@ -48,11 +48,28 @@
                 <span class="menu-title">Contact</span>
             </a>
         </li>
+        {#<li class="nav-item">#}
+            {#<a class="nav-link" href="{{ path('extra_index') }}">#}
+                {#<i class="menu-icon mdi mdi-code-tags"></i>#}
+                {#<span class="menu-title">Extra</span>#}
+            {#</a>#}
+        {#</li>#}
         <li class="nav-item">
-            <a class="nav-link" href="{{ path('extra_index') }}">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="menu-icon mdi mdi-code-tags"></i>
                 <span class="menu-title">Extra</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('extra_index') }}">Site</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/ui-features/typography.html">Mail</a>
+                    </li>
+                </ul>
+            </div>
         </li>
     </ul>
 </nav>

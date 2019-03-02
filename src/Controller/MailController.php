@@ -10,7 +10,7 @@ class MailController extends AbstractController
     {
         $transport = (new \Swift_SmtpTransport('smtp.ionos.fr', 587, 'tls'))
             ->setUsername('contact@jef-dc.com')
-            ->setPassword('claude05dusky09');
+            ->setPassword('mAc&BellaDc81');
 
         $mailer = new \Swift_Mailer($transport);
 
@@ -35,7 +35,7 @@ class MailController extends AbstractController
     {
         $tranport = (new \Swift_SmtpTransport('smtp.ionos.fr', 587, 'tls'))
             ->setUsername('contact@jef-dc.com')
-            ->setPassword('claude05dusky09');
+            ->setPassword('mAc&BellaDc81');
 
         $mailer = new \Swift_Mailer($tranport);
 

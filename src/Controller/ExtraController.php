@@ -23,7 +23,7 @@ class ExtraController extends AbstractController
      */
     public function index(ExtraRepository $extraRepository): Response
     {
-        return $this->render('/admin/extra/index.html.twig', [
+        return $this->render('/admin/extra/site/index.html.twig', [
             'extras' => $extraRepository->findAll(),
         ]);
     }
@@ -44,7 +44,7 @@ class ExtraController extends AbstractController
             ]);
         }
 
-        return $this->render('/admin/extra/_form.html.twig', [
+        return $this->render('/admin/extra/site/_form.html.twig', [
             'extra' => $extra,
             'form' => $form->createView()
         ]);
