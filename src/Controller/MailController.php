@@ -28,20 +28,6 @@ class MailController extends AbstractController
         return $mailer = new \Swift_Mailer($transport);
     }
 
-//    /**
-//     * @param $name
-//     * @param $message
-//     * @param $email
-//     * @Route("/test")
-//     */
-//    public function test()
-//    {
-//        $tests = $this->getDoctrine()->getRepository(MailAdminSetting::class);
-//        $test = $tests->findOneBy(['id' => 1]);
-//        $object = $test->getObject();
-//        dd($object);
-//    }
-
     public function sendMailMessageAdmin($name, $message, $email)
     {
         $mailAdminSettingRepository = $this->getDoctrine()->getRepository(MailAdminSetting::class);
