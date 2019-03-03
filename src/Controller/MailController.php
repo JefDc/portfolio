@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\MailAdminSetting;
 use App\Entity\MailSetting;
+use App\Entity\MailUserSetting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -58,9 +59,15 @@ class MailController extends AbstractController
 
     public function sendMailUser($name, $email)
     {
+        $mailUserSettingRepository = $this->getDoctrine()->getRepository(MailUserSetting::class);
+        $mailUserSetting = $mailUserSettingRepository->findOneBy(['id' => 1]);
+        $subject = $mailUserSetting->getSubject();
+        $mailSend = $mailUserSetting->getMailSend();
+        $domaine = $mailUserSetting->getDomaine();
+
         $mailer = $this->transport();
-        $mail = (new \Swift_Message('Merci de votre intérêt'))
-            ->setFrom(['contact@jef-dc.com' => 'jef-dc.com'])
+        $mail = (new \Swift_Message($subject))
+            ->setFrom([$mailSend => $domaine])
             ->setTo([$email => $name])
             ->setCharset('UTF-8')
             ->setContentType('text/html')
