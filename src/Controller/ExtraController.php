@@ -162,7 +162,7 @@ class ExtraController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $mailContentUser->getImg();
-            $filename = md5(uniqid()). 'img' . $file->guessExtension();
+            $filename = md5(uniqid()). '-img' . '.' . $file->guessExtension();
             $file->move($this->getParameter('upload_email_directory'), $filename);
             $mailContentUser->setImg($filename);
 

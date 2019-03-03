@@ -22,7 +22,8 @@ class AboutUsType extends AbstractType
             ])
             ->add('content', TextareaType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'rows' => 10
                 ]
             ])
             ->add('subTitle', TextType::class, [

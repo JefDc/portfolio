@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\MailAdminSetting;
+use App\Entity\MailContentUser;
 use App\Entity\MailSetting;
 use App\Entity\MailUserSetting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -65,6 +66,13 @@ class MailController extends AbstractController
         $mailSend = $mailUserSetting->getMailSend();
         $domaine = $mailUserSetting->getDomaine();
 
+        $mailContentUserRepository = $this->getDoctrine()->getRepository(MailContentUser::class);
+        $mailContentUser = $mailContentUserRepository->findOneBy(['id' => 1]);
+        $title = $mailContentUser->getTitle();
+        $content = $mailContentUser->getContent();
+        $img = $mailContentUser->getImg();
+        $link = $mailContentUser->getLink();
+
         $mailer = $this->transport();
         $mail = (new \Swift_Message($subject))
             ->setFrom([$mailSend => $domaine])
@@ -74,7 +82,11 @@ class MailController extends AbstractController
             ->setBody(
              $this->renderView('admin/mail/mailUser.html.twig',
                  [
-                     'name' => $name
+                     'name' => $name,
+                     'title' => $title,
+                     'content' => $content,
+                     'img' => $img,
+                     'link' => $link
                  ]
              )
          );
