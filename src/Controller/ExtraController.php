@@ -10,6 +10,7 @@ use App\Entity\MailUserSetting;
 use App\Entity\User;
 use App\Form\ExtraType;
 use App\Form\MailAdminSettingType;
+use App\Form\MailContentUserType;
 use App\Form\MailSettingType;
 use App\Form\MailUserSettingType;
 use App\Form\UserType;
@@ -156,10 +157,15 @@ class ExtraController extends AbstractController
      */
     public function mailContentUserEdit(Request $request, MailContentUser $mailContentUser)
     {
-        $form = $this->createForm(MailContentUser::class, $mailContentUser);
+        $form = $this->createForm(MailContentUserType::class, $mailContentUser);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $mailContentUser->getImg();
+            $filename = md5(uniqid()). 'img' . $file->guessExtension();
+            $file->move($this->getParameter('upload_email_directory'), $filename);
+            $mailContentUser->setImg($filename);
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('extra_mail_contents', [

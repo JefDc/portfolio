@@ -25,7 +25,7 @@ class MailContentUserType extends AbstractType
                 ]
             ])
             ->add('img', FileType::class, [
-                'data_class' => true,
+                'data_class' => null,
                 'attr' => [
                     'class' => 'form-control'
                 ]

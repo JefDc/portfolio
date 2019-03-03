@@ -12,6 +12,7 @@ parameters:
     upload_contact_directory: '%kernel.project_dir%/public/home/img/contact'
     upload_user_directory: '%kernel.project_dir%/public/home/img/user'
     upload_cv_directory: '%kernel.project_dir%/public/home/img/cv'
+    upload_email_directory: '%kernel.project_dir%/public/home/img/mail'
 
 services:
     # default configuration for services in *this* file
