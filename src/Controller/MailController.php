@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\MailAdminSetting;
 use App\Entity\MailSetting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class MailController extends AbstractController
@@ -12,7 +14,7 @@ class MailController extends AbstractController
     public function transport()
     {
         $mailSettingRepository = $this->getDoctrine()->getRepository(MailSetting::class);
-        $mailSetting = $mailSettingRepository->findOneBy(array('id' => 1));
+        $mailSetting = $mailSettingRepository->findOneBy(['id' => 1]);
         $host = $mailSetting->getHost();
         $port = $mailSetting->getPort();
         $encryption = $mailSetting->getEncryption();
@@ -26,12 +28,34 @@ class MailController extends AbstractController
         return $mailer = new \Swift_Mailer($transport);
     }
 
+//    /**
+//     * @param $name
+//     * @param $message
+//     * @param $email
+//     * @Route("/test")
+//     */
+//    public function test()
+//    {
+//        $tests = $this->getDoctrine()->getRepository(MailAdminSetting::class);
+//        $test = $tests->findOneBy(['id' => 1]);
+//        $object = $test->getObject();
+//        dd($object);
+//    }
+
     public function sendMailMessageAdmin($name, $message, $email)
     {
+        $mailAdminSettingRepository = $this->getDoctrine()->getRepository(MailAdminSetting::class);
+        $mailAdminSetting = $mailAdminSettingRepository->findOneBy(['id' => 1]);
+        $subjet = $mailAdminSetting->getObject();
+        $mailSend = $mailAdminSetting->getMailSend();
+        $domaine = $mailAdminSetting->getDomaine();
+        $mailReception = $mailAdminSetting->getMailReception();
+        $nameAdmin = $mailAdminSetting->getNameAdmin();
+
         $mailer = $this->transport();
-        $mail = (new \Swift_Message('Vous avez un nouveau message'))
-            ->setFrom(['contact@jef-dc.com' => 'jef-dc.com'])
-            ->setTo(['de.conti.jf@gmail.com' => 'Jef Dc'])
+        $mail = (new \Swift_Message($subjet))
+            ->setFrom([$mailSend => $domaine])
+            ->setTo([$mailReception => $nameAdmin])
             ->setCharset('UTF-8')
             ->setContentType('text/html')
             ->setBody(

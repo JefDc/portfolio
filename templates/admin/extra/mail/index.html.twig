@@ -64,59 +64,64 @@
                                 <a href="{{ path('extra_mailSetting_edit', {'id' : mailSetting.id}) }}">
                                     <button type="submit" class="btn btn-success mr-2">Éditer</button>
                                 </a>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="subTitle">
-                                            <h4 class="card-title text-center m-5">Mail de reception message</h4>
+                                {% for mailAdminSetting in mailAdminSettings %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="subTitle">
+                                                <h4 class="card-title text-center m-5">Mail de reception message</h4>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label">Objet :</label>
+                                                    <div class="col-sm-9">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Objet :</label>
+                                                <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
                                                 <div class="col-sm-9">
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
-                                            <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nom du domaine :</label>
+                                                <div class="col-sm-9">
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nom du domaine :</label>
-                                            <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Adresse mail de reception :</label>
+                                                <div class="col-sm-9">
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Adresse mail de reception :</label>
-                                            <div class="col-sm-9">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nom de l'admin :</label>
+                                                <div class="col-sm-9">
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group row">
-                                            <label class="col-sm-3 col-form-label">Nom de l'admin :</label>
-                                            <div class="col-sm-9">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <a href="{{ path('extra_mailSetting_edit', {'id' : mailAdminSetting.id}) }}">
+                                        <button type="submit" class="btn btn-success mr-2">Éditer</button>
+                                    </a>
+                                {% endfor %}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="subTitle">
