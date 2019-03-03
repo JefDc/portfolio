@@ -61,9 +61,9 @@ class ExtraController extends AbstractController
     }
 
     /**
-     * @Route("/mail", name="extra_mail")
+     * @Route("/mail/setting", name="extra_mail_setting")
      */
-    public function indexMail(MailSettingRepository $mailSettingRepository, MailAdminSettingRepository $mailAdminSettingRepository,
+    public function indexMailSetting(MailSettingRepository $mailSettingRepository, MailAdminSettingRepository $mailAdminSettingRepository,
                               MailUserSettingRepository $mailUserSettingRepository)
     {
         return $this->render('/admin/extra/mail/index.html.twig', [
@@ -74,7 +74,7 @@ class ExtraController extends AbstractController
     }
 
     /**
-     * @Route("/mail/{id}/edit", name="extra_mailSetting_edit", methods={"GET", "POST"})
+     * @Route("/mail/setting/{id}/edit", name="extra_mailSetting_edit", methods={"GET", "POST"})
      */
     public function mailSettingEdit(Request $request, MailSetting $mailSetting)
     {
@@ -96,7 +96,7 @@ class ExtraController extends AbstractController
     }
 
     /**
-     * @Route("/mail/{id}/admin/edit", name="extra_mailAdmin_edit", methods={"GET", "POST"})
+     * @Route("/mail/setting/{id}/admin/edit", name="extra_mailAdmin_edit", methods={"GET", "POST"})
      */
     public function mailAdminSettingEdit(Request $request, MailAdminSetting $mailAdminSetting)
     {
@@ -118,7 +118,7 @@ class ExtraController extends AbstractController
     }
 
     /**
-     * @Route("/mail/{id}/user/edit", name="extra_mailUser_edit", methods={"GET", "POST"})
+     * @Route("/mail/setting/{id}/user/edit", name="extra_mailUser_edit", methods={"GET", "POST"})
      */
     public function mailUserSettingEdit(Request $request, MailUserSetting $mailUserSetting)
     {
@@ -137,5 +137,13 @@ class ExtraController extends AbstractController
             'mailUserSetting' => $mailUserSetting,
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/mail/contents", name="extra_mail_contents", methods={"GET", "POST"})
+     */
+    public function indexMailContents()
+    {
+
     }
 }
