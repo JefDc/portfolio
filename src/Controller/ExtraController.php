@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Extra;
+use App\Entity\MailAdminSetting;
 use App\Entity\MailSetting;
 use App\Entity\User;
 use App\Form\ExtraType;
+use App\Form\MailAdminSettingType;
 use App\Form\MailSettingType;
 use App\Form\UserType;
 use App\Repository\ExtraRepository;
@@ -83,6 +85,28 @@ class ExtraController extends AbstractController
         return $this->render('/admin/extra/mail/_formSetting.html.twig', [
            'mailSetting' => $mailSetting,
            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/mail/{id}/admin/edit", name="extra_mailAdmin_edit", methods={"GET", "POST"})
+     */
+    public function mailAdminSetting(Request $request, MailAdminSetting $mailAdminSetting)
+    {
+        $form = $this->createForm(MailAdminSettingType::class, $mailAdminSetting);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('extra_mail', [
+                'id' => $mailAdminSetting->getId()
+            ]);
+        }
+
+        return$this->render('/admin/extra/mail/_formMailAdmin.html.twig', [
+            'mailAdminSetting' => $mailAdminSetting,
+            'form' => $form->createView()
         ]);
     }
 }
