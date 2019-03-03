@@ -111,14 +111,14 @@ class ExtraController extends AbstractController
             ]);
         }
 
-        return $this->render('/admin/extra/mail/_formMailAdmin.html.twig', [
+        return $this->render('/admin/extra/mail/_formMailAdminSetting.html.twig', [
             'mailAdminSetting' => $mailAdminSetting,
             'form' => $form->createView()
         ]);
     }
 
     /**
-     * @Route("/mail/{id}/user/edit"; name="extra_mailUser_edit", methods={"GET", "POST"})
+     * @Route("/mail/{id}/user/edit", name="extra_mailUser_edit", methods={"GET", "POST"})
      */
     public function mailUserSettingEdit(Request $request, MailUserSetting $mailUserSetting)
     {
