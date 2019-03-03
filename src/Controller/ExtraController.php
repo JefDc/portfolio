@@ -31,6 +31,7 @@ class ExtraController extends AbstractController
     {
         return $this->render('/admin/extra/site/index.html.twig', [
             'extras' => $extraRepository->findAll(),
+
         ]);
     }
 
@@ -59,10 +60,11 @@ class ExtraController extends AbstractController
     /**
      * @Route("/mail", name="extra_mail")
      */
-    public function indexMail(MailSettingRepository $mailSettingRepository)
+    public function indexMail(MailSettingRepository $mailSettingRepository, MailSettingRepository $mailSettingRepository)
     {
         return $this->render('/admin/extra/mail/index.html.twig', [
-            'mailSettings' => $mailSettingRepository->findAll()
+            'mailSettings' => $mailSettingRepository->findAll(),
+            'mailAdminSettings' => $mailSettingRepository->findAll()
         ]);
     }
 
