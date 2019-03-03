@@ -6,29 +6,27 @@
                 <div class="col-md-6 grid-margin stretch-card mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Intro</h4>
+                            <h4 class="card-title">Mail de reception message</h4>
                             {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
                             <div class="form-group">
-                                <label for="exampleInputName1">Name</label>
-                                {{ form_widget(form.name) }}
+                                <label for="exampleInputName1">Objet</label>
+                                {{ form_widget(form.host) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail3">Title</label>
-                                {{ form_widget(form.title) }}
+                                <label for="exampleInputName1">Adresse mail d'envoie</label>
+                                {{ form_widget(form.port) }}
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword4">Sous Titre</label>
-                                {{ form_widget(form.subTitle) }}
+                                <label for="exampleInputName1">Nom du domaine</label>
+                                {{ form_widget(form.encryption) }}
                             </div>
                             <div class="form-group">
-                                <label>Photo ( 1920 X 996 )</label>
-                                <input type="file" name="img[]" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    {{ form_widget(form.img) }}
-                                    <span class="input-group-append">
-                                        <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                                    </span>
-                                </div>
+                                <label for="exampleInputPassword4">Adresse mail de reception</label>
+                                {{ form_widget(form.username) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Mot de l'admin</label>
+                                {{ form_widget(form.password) }}
                             </div>
                             <button type="submit" class="btn btn-success mr-2">Envoyer</button>
                             {{ form_end(form) }}

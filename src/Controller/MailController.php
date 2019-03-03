@@ -6,7 +6,6 @@ use App\Entity\MailSetting;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-
 class MailController extends AbstractController
 {
 
@@ -26,7 +25,6 @@ class MailController extends AbstractController
 
         return $mailer = new \Swift_Mailer($transport);
     }
-
 
     public function sendMailMessageAdmin($name, $message, $email)
     {
