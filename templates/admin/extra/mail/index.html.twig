@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <a href="{{ path('extra_mailSetting_edit', {'id' : mailSetting.id}) }}">
-                                    <button type="submit" class="btn btn-success mr-2">Éditer</button>
+                                    <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
                                 </a>
                                 {% for mailAdminSetting in mailAdminSettings %}
                                     <div class="row">
@@ -72,7 +72,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-3 col-form-label">Objet :</label>
                                                     <div class="col-sm-9">
-
+                                                    {{ mailAdminSetting.object }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,7 +83,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
                                                 <div class="col-sm-9">
-
+                                                {{ mailAdminSetting.mailSend }}
                                                 </div>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Nom du domaine :</label>
                                                 <div class="col-sm-9">
-
+                                                {{ mailAdminSetting.domaine }}
                                                 </div>
                                             </div>
                                         </div>
@@ -103,7 +103,7 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Adresse mail de reception :</label>
                                                 <div class="col-sm-9">
-
+                                                {{ mailAdminSetting.mailReception }}
                                                 </div>
                                             </div>
                                         </div>
@@ -113,13 +113,13 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">Nom de l'admin :</label>
                                                 <div class="col-sm-9">
-
+                                                {{ mailAdminSetting.nameAdmin }}
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="{{ path('extra_mailSetting_edit', {'id' : mailAdminSetting.id}) }}">
-                                        <button type="submit" class="btn btn-success mr-2">Éditer</button>
+                                    <a href="{{ path('extra_mailAdmin_edit', {'id' : mailAdminSetting.id}) }}">
+                                        <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
                                     </a>
                                 {% endfor %}
                                 <div class="row">
