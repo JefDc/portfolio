@@ -11,6 +11,7 @@ use App\Form\MailAdminSettingType;
 use App\Form\MailSettingType;
 use App\Form\UserType;
 use App\Repository\ExtraRepository;
+use App\Repository\MailAdminSettingRepository;
 use App\Repository\MailSettingRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,8 +31,7 @@ class ExtraController extends AbstractController
     public function index(ExtraRepository $extraRepository): Response
     {
         return $this->render('/admin/extra/site/index.html.twig', [
-            'extras' => $extraRepository->findAll(),
-
+            'extras' => $extraRepository->findAll()
         ]);
     }
 
@@ -60,11 +60,11 @@ class ExtraController extends AbstractController
     /**
      * @Route("/mail", name="extra_mail")
      */
-    public function indexMail(MailSettingRepository $mailSettingRepository, MailSettingRepository $mailSettingRepository)
+    public function indexMail(MailSettingRepository $mailSettingRepository, MailAdminSettingRepository $mailAdminSettingRepository)
     {
         return $this->render('/admin/extra/mail/index.html.twig', [
             'mailSettings' => $mailSettingRepository->findAll(),
-            'mailAdminSettings' => $mailSettingRepository->findAll()
+            'mailAdminSettings' => $mailAdminSettingRepository->findAll()
         ]);
     }
 
