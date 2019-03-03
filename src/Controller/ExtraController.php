@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Extra;
 use App\Entity\MailAdminSetting;
+use App\Entity\MailContentUser;
 use App\Entity\MailSetting;
 use App\Entity\MailUserSetting;
 use App\Entity\User;
@@ -14,6 +15,7 @@ use App\Form\MailUserSettingType;
 use App\Form\UserType;
 use App\Repository\ExtraRepository;
 use App\Repository\MailAdminSettingRepository;
+use App\Repository\MailContentUserRepository;
 use App\Repository\MailSettingRepository;
 use App\Repository\MailUserSettingRepository;
 use App\Repository\UserRepository;
@@ -122,7 +124,7 @@ class ExtraController extends AbstractController
      */
     public function mailUserSettingEdit(Request $request, MailUserSetting $mailUserSetting)
     {
-        $form =$this->createForm(MailUserSettingType::class, $mailUserSetting);
+        $form = $this->createForm(MailUserSettingType::class, $mailUserSetting);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -142,8 +144,32 @@ class ExtraController extends AbstractController
     /**
      * @Route("/mail/contents", name="extra_mail_contents", methods={"GET", "POST"})
      */
-    public function indexMailContents()
+    public function indexMailContents(MailContentUserRepository $mailContentUserRepository)
     {
+        return $this->render('/admin/extra/mailContent/index.html.twig', [
+           'mailContents' => $mailContentUserRepository->findAll()
+        ]);
+    }
 
+    /**
+     * @Route("/mail/content/{id}/user/edit", name="extra_mail_content_user_edit", methods={"GET", "POST"})
+     */
+    public function mailContentUserEdit(Request $request, MailContentUser $mailContentUser)
+    {
+        $form = $this->createForm(MailContentUser::class, $mailContentUser);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('extra_mail_contents', [
+                'id' => $mailContentUser->getId()
+            ]);
+        }
+
+        return $this->render('/admin/extra/mailContent/_formContentUser.html.twig', [
+           'mailContentUser' => $mailContentUser,
+           'form' => $form->createView()
+        ]);
     }
 }
