@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Contact;
+use App\Entity\Extra;
 use App\Entity\MailAdminSetting;
 use App\Entity\MailContentUser;
 use App\Entity\MailSetting;
 use App\Entity\MailUserSetting;
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -60,18 +63,33 @@ class MailController extends AbstractController
 
     public function sendMailUser($name, $email)
     {
+        // recover mailUserSetting
         $mailUserSettingRepository = $this->getDoctrine()->getRepository(MailUserSetting::class);
         $mailUserSetting = $mailUserSettingRepository->findOneBy(['id' => 1]);
         $subject = $mailUserSetting->getSubject();
         $mailSend = $mailUserSetting->getMailSend();
         $domaine = $mailUserSetting->getDomaine();
 
+        // recover mailContentUser
         $mailContentUserRepository = $this->getDoctrine()->getRepository(MailContentUser::class);
         $mailContentUser = $mailContentUserRepository->findOneBy(['id' => 1]);
         $title = $mailContentUser->getTitle();
         $content = $mailContentUser->getContent();
         $img = $mailContentUser->getImg();
         $link = $mailContentUser->getLink();
+
+        // recover contact info
+        $contactRepository = $this->getDoctrine()->getRepository(Contact::class);
+        $contact = $contactRepository->findOneBy(['id' => 1]);
+        $emailAdmin = $contact->getEmail();
+        $phone = $contact->getPhone();
+
+        // recover link footer
+        $extraRepository = $this->getDoctrine()->getRepository(Extra::class);
+        $extra = $extraRepository->findOneBy(['id' => 1]);
+        $linkedin = $extra->getLinkedin();
+        $github = $extra->getGithub();
+        $twitter = $extra->getTwitter();
 
         $mailer = $this->transport();
         $mail = (new \Swift_Message($subject))
@@ -86,10 +104,35 @@ class MailController extends AbstractController
                      'title' => $title,
                      'content' => $content,
                      'img' => $img,
-                     'link' => $link
+                     'link' => $link,
+                     'email' => $emailAdmin,
+                     'phone' => $phone,
+                     'linkedin' => $linkedin,
+                     'github' => $github,
+                     'twitter' => $twitter
                  ]
              )
          );
         $mailer->send($mail);
+    }
+
+    /**
+     * @Route("/mail", name="test_mail")
+     */
+    public function mailTest()
+    {
+
+        $contactRepository = $this->getDoctrine()->getRepository(Contact::class);
+        $contact = $contactRepository->findOneBy(['id' => 1]);
+        dd($contact);
+        return $this->render('/admin/mail/mailUser.html.twig', [
+           'name' => 'Jef Dc',
+           'message' => "Yo yo yo !",
+           'email' => 'vival@teck.no',
+            'link' => 'jef-dc.com',
+            'img' => 1,
+            'content' => 'yo',
+            'title' => 'Vous avez un nouveau message'
+        ]);
     }
 }
