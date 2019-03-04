@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Entity\Extra;
 use App\Entity\MailAdminSetting;
+use App\Entity\MailContentAdmin;
 use App\Entity\MailContentUser;
 use App\Entity\MailSetting;
 use App\Entity\MailUserSetting;
@@ -35,6 +36,7 @@ class MailController extends AbstractController
 
     public function sendMailMessageAdmin($name, $message, $email)
     {
+        // recover mailAdminSetting
         $mailAdminSettingRepository = $this->getDoctrine()->getRepository(MailAdminSetting::class);
         $mailAdminSetting = $mailAdminSettingRepository->findOneBy(['id' => 1]);
         $subjet = $mailAdminSetting->getObject();
@@ -42,6 +44,17 @@ class MailController extends AbstractController
         $domaine = $mailAdminSetting->getDomaine();
         $mailReception = $mailAdminSetting->getMailReception();
         $nameAdmin = $mailAdminSetting->getNameAdmin();
+
+        // recover picture on mailContentUser
+        $mailContentUserRepository = $this->getDoctrine()->getRepository(MailContentUser::class);
+        $mailContentUser = $mailContentUserRepository->findOneBy(['id' => 1]);
+        $img = $mailContentUser->getImg();
+
+        // recover mailContentAdmin
+        $mailContentAdminRepository = $this->getDoctrine()->getRepository(MailContentAdmin::class);
+        $mailContentAdmin = $mailContentAdminRepository->findOneBy(['id' => 1]);
+        $title = $mailContentAdmin->getTitle();
+
 
         $mailer = $this->transport();
         $mail = (new \Swift_Message($subjet))
@@ -54,7 +67,11 @@ class MailController extends AbstractController
                     [
                         'name' => $name,
                         'message' => $message,
-                        'email' => $email
+                        'email' => $email,
+                        'nameAdmin' => $nameAdmin,
+                        'img' => $img,
+                        'link' => $domaine,
+                        'title' => $title
                     ]
                 )
             );
@@ -114,25 +131,5 @@ class MailController extends AbstractController
              )
          );
         $mailer->send($mail);
-    }
-
-    /**
-     * @Route("/mail", name="test_mail")
-     */
-    public function mailTest()
-    {
-
-        $contactRepository = $this->getDoctrine()->getRepository(Contact::class);
-        $contact = $contactRepository->findOneBy(['id' => 1]);
-        dd($contact);
-        return $this->render('/admin/mail/mailUser.html.twig', [
-           'name' => 'Jef Dc',
-           'message' => "Yo yo yo !",
-           'email' => 'vival@teck.no',
-            'link' => 'jef-dc.com',
-            'img' => 1,
-            'content' => 'yo',
-            'title' => 'Vous avez un nouveau message'
-        ]);
     }
 }
