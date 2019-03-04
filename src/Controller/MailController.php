@@ -9,7 +9,6 @@ use App\Entity\MailContentAdmin;
 use App\Entity\MailContentUser;
 use App\Entity\MailSetting;
 use App\Entity\MailUserSetting;
-use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
