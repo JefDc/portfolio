@@ -1693,3 +1693,14 @@ ol {
 		font-size: 33px;
 	}
 }
+
+#success-alert {
+	width: 50%;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+	#success-alert {
+		width: 80%;
+		text-align: center;
+	}
+}

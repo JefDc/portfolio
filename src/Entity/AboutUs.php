@@ -31,6 +31,11 @@ class AboutUs
      */
     private $subTitle;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cv;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +73,18 @@ class AboutUs
     public function setSubTitle(string $subTitle): self
     {
         $this->subTitle = $subTitle;
+
+        return $this;
+    }
+
+    public function getCv()
+    {
+        return $this->cv;
+    }
+
+    public function setCv($cv): self
+    {
+        $this->cv = $cv;
 
         return $this;
     }

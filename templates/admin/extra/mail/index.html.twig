@@ -1,0 +1,174 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    {% for mailSetting in mailSettings %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row justify-content-center">
+                    <div class="col-8 grid-margin mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Paramètres des emails</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="subTitle">
+                                            <h4 class="card-title text-center m-5" style="font-size: large">Paramètres</h4>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Host :</label>
+                                                <div class="col-sm-9">
+                                                    {{ mailSetting.host }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Port :</label>
+                                            <div class="col-sm-9">
+                                                {{ mailSetting.port }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Encryptage :</label>
+                                            <div class="col-sm-9">
+                                                {{ mailSetting.encryption }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Utilisateur :</label>
+                                            <div class="col-sm-9">
+                                                {{ mailSetting.username }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Mot de passe :</label>
+                                            <div class="col-sm-9">
+                                                ***********
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('extra_mailSetting_edit', {'id' : mailSetting.id}) }}">
+                                    <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
+                                </a>
+                                {% for mailAdminSetting in mailAdminSettings %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="subTitle">
+                                                <h4 class="card-title text-center m-5" style="font-size: large">Email de reception message</h4>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-3 col-form-label">Objet :</label>
+                                                    <div class="col-sm-9">
+                                                    {{ mailAdminSetting.object }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
+                                                <div class="col-sm-9">
+                                                {{ mailAdminSetting.mailSend }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nom du domaine :</label>
+                                                <div class="col-sm-9">
+                                                {{ mailAdminSetting.domaine }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Adresse mail de reception :</label>
+                                                <div class="col-sm-9">
+                                                {{ mailAdminSetting.mailReception }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Nom de l'admin :</label>
+                                                <div class="col-sm-9">
+                                                {{ mailAdminSetting.nameAdmin }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="{{ path('extra_mailAdmin_edit', {'id' : mailAdminSetting.id}) }}">
+                                        <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
+                                    </a>
+                                {% endfor %}
+                                {% for mailUserSetting in mailUserSettings %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="subTitle">
+                                            <h4 class="card-title text-center m-5" style="font-size: large">Email d'envoie au visiteur</h4>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Objet :</label>
+                                                <div class="col-sm-9">
+                                                {{ mailUserSetting.subject }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Adresse mail d'envoie :</label>
+                                            <div class="col-sm-9">
+                                            {{ mailUserSetting.mailSend }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Nom du domaine :</label>
+                                            <div class="col-sm-9">
+                                            {{ mailUserSetting.domaine }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('extra_mailUser_edit', {'id' : mailUserSetting.id}) }}">
+                                    <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+

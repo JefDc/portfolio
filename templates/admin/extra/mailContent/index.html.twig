@@ -1,0 +1,86 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    {% for mailContent in mailContents %}
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row justify-content-center">
+                    <div class="col-8 grid-margin mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Email</h4>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="subTitle">
+                                            <h4 class="card-title text-center m-5" style="font-size: large">Reponse automatique à l'envoie d'un message</h4>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Titre :</label>
+                                                <div class="col-sm-9">
+                                                    {{ mailContent.title }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Contenu :</label>
+                                            <div class="col-sm-9">
+                                                {{ mailContent.content[:300] ~ '...' }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label pl-4">Image :</label>
+                                            <div class="col-sm-9">
+                                                <img class="img-fluid img-thumbnail sizePictureTab"
+                                                     src="/home/img/mail/{{ mailContent.img }}" alt="jef dc">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Lien du site :</label>
+                                            <div class="col-sm-9">
+                                                {{ mailContent.link }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('extra_mail_content_user_edit', {'id' : mailContent.id}) }}">
+                                    <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
+                                </a>
+                                {% for mailContentAdmin in mailContentAdmins %}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="subTitle">
+                                            <h4 class="card-title text-center m-5" style="font-size: large">Envoie automatique à l'admin</h4>
+                                            <div class="form-group row">
+                                                <label class="col-sm-3 col-form-label">Titre :</label>
+                                                <div class="col-sm-9">
+                                                    {{ mailContentAdmin.title }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="{{ path('extra_mail_content_admin_edit', {'id' : mailContentAdmin.id}) }}">
+                                    <button type="submit" class="btn btn-success mt-3 mr-2">Éditer</button>
+                                </a>
+                                {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+

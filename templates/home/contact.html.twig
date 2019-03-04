@@ -18,7 +18,7 @@
                     <p>{{ contact.text }}</p>
                     <ul class="con-info">
                         <li><i class="flaticon-phone-call"></i>{{ contact.phone }}</li>
-                        <li><i class="flaticon-envelope"></i>{{ contact.email }}</li>
+                        <li><i class="flaticon-envelope"></i><a class="text-white" href="mailto:" >{{ contact.email }}</a></li>
                         <li><i class="flaticon-placeholder"></i>{{ contact.address }}</li>
                     </ul>
                 </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-md-12">
                             {{ form_widget(form.message) }}
-                            <div class="g-recaptcha mb-4" data-sitekey="6Lf-fJIUAAAAADSHh59ISKYHPNd_7zSuLFg0JbqY"></div>
+                            <div class="g-recaptcha mb-4" data-theme="dark" data-sitekey="6Lf-fJIUAAAAADSHh59ISKYHPNd_7zSuLFg0JbqY"></div>
                             <button class="site-btn light mt-1">Envoyer</button>
                         </div>
                     </div>

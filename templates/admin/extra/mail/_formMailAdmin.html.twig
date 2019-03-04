@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Mail de reception message</h4>
+                            {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                            <div class="form-group">
+                                <label for="exampleInputName1">Objet</label>
+                                {{ form_widget(form.object) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Adresse mail d'envoie</label>
+                                {{ form_widget(form.mailSend) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Nom du domaine</label>
+                                {{ form_widget(form.domaine) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Adresse mail de reception</label>
+                                {{ form_widget(form.mailReception) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Mot de l'admin</label>
+                                {{ form_widget(form.nameAdmin) }}
+                            </div>
+                            <button type="submit" class="btn btn-success mr-2">Envoyer</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+{% block body %}
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row justify-content-center">
+                <div class="col-md-6 grid-margin stretch-card mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Mail paramètre</h4>
+                            {{ form_start(form, {'attr' : {'class' : 'form-sample' }}) }}
+                            <div class="form-group">
+                                <label for="exampleInputName1">Host</label>
+                                {{ form_widget(form.host) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Port</label>
+                                {{ form_widget(form.port) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputName1">Encryptage</label>
+                                {{ form_widget(form.encryption) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Utilisateur</label>
+                                {{ form_widget(form.username) }}
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword4">Mot de passe</label>
+                                {{ form_widget(form.password) }}
+                            </div>
+                            <button type="submit" class="btn btn-success mr-2">Envoyer</button>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
