@@ -1,10 +1,17 @@
 # Portfolio
-Free and open source project.
+Free and open source project Symfony 4.
 Dynamic portfolio website, fully administrable and customizable without any lines of code.
 Regularly updated.
 
+
 # Install
-  ### In terminal,
+- In terminal : 
+   - git clone https://github.com/JefDc/portfolio.git .  Install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git .
+   - composer install . Install composer : https://getcomposer.org/download/
+- Install data base exemple in terminal :
+   - `php bin/console app:load-fixtures-dev`
+   
+   
 # V1.0
   # User page :
     - Add section intro.
