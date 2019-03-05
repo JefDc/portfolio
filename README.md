@@ -10,6 +10,11 @@ Regularly updated.
    - `composer install`  ( Install composer : https://getcomposer.org/download/ )
 - Install data base exemple in terminal :
    - `php bin/console app:load-fixtures-dev`
+- Go to /admin/dashboard
+   `username : root`
+   `password : root`
+- Customize
+- Enjoy ! :)
    
    
 # V1.0
