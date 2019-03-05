@@ -4,7 +4,7 @@ Dynamic portfolio website, fully administrable and customizable without any line
 Regularly updated.
 
 # Install
-In terminal,
+  In terminal,
 # V1.0
   # User page :
     - Add section intro.
