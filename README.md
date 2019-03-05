@@ -6,8 +6,8 @@ Regularly updated.
 
 # Install
 - In terminal : 
-   - git clone https://github.com/JefDc/portfolio.git .  Install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git .
-   - composer install . Install composer : https://getcomposer.org/download/
+   - git clone https://github.com/JefDc/portfolio.git .  ( Install git : https://git-scm.com/book/en/v2/Getting-Started-Installing-Git )
+   - composer install . ( Install composer : https://getcomposer.org/download/ )
 - Install data base exemple in terminal :
    - `php bin/console app:load-fixtures-dev`
    
