@@ -3,6 +3,8 @@ Free and open source project.
 Dynamic portfolio website, fully administrable and customizable without any lines of code.
 Regularly updated.
 
+# Install
+In terminal,
 # V1.0
   # User page :
     - Add section intro.
