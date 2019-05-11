@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.0-dev
+-- version 4.6.6deb4
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 192.168.30.23
--- Généré le :  lun. 04 mars 2019 à 18:45
--- Version du serveur :  8.0.3-rc-log
--- Version de PHP :  7.2.14-1+0~20190113100742.14+stretch~1.gbpd83c69
+-- Client :  db773471853.hosting-data.io
+-- Généré le :  Sam 11 Mai 2019 à 09:21
+-- Version du serveur :  5.5.60-0+deb7u1-log
+-- Version de PHP :  7.0.33-0+deb9u3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `portfolio`
+-- Base de données :  `db773471853`
 --
 
 -- --------------------------------------------------------
@@ -34,14 +32,14 @@ CREATE TABLE `about_us` (
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `sub_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cv` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `about_us`
+-- Contenu de la table `about_us`
 --
 
 INSERT INTO `about_us` (`id`, `title`, `content`, `sub_title`, `cv`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipising elit', '\"Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 'xxxxxxx', 'xxxxx.pdf');
+(1, 'La passion du code', 'A 37 ans, j’ai décidé de changer de vie et de me reconvertir dans le développement. \r\nPassionné depuis toujours d’informatique et de hack, j’ai entrepris une formation de développeur web, en Php Symfony.', 'À propos', 'cv De CONTI.pdf');
 
 -- --------------------------------------------------------
 
@@ -61,11 +59,11 @@ CREATE TABLE `contact` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `contact`
+-- Contenu de la table `contact`
 --
 
 INSERT INTO `contact` (`id`, `phone`, `email`, `text`, `address`, `title`, `sub_title`, `img`) VALUES
-(1, 'xx xx xx xx xx', 'xxxxx@xxxx.com', '\"Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', '120 Rue de la Garde, 13000 Marseille', 'Jef De CONTI', 'Me contacter', 'd4e3c3374b4bc8c2554dd882d1ef712a-contact.jpeg');
+(1, '+33 6 85 77 70 92', 'de.conti.jf@gmail.com', 'J\'ai titillé votre curiosité ? Alors deux options s\'offrent à vous, m\'envoyer un mail ou le formulaire.', '7 Rue de la Barre, 71000 Mâcon', 'Jef De CONTI', 'Me contacter', 'd4e3c3374b4bc8c2554dd882d1ef712a-contact.jpeg');
 
 -- --------------------------------------------------------
 
@@ -85,11 +83,11 @@ CREATE TABLE `extra` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `extra`
+-- Contenu de la table `extra`
 --
 
 INSERT INTO `extra` (`id`, `text_soft_skill`, `title_soft_skill`, `sub_title_soft_skill`, `title_skill`, `github`, `linkedin`, `twitter`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor incididunt ...', 'xxxxxxxxx', 'xxxxxxxxx', 'xxxxxxxxx', 'https://github.com/xxxx', 'https://www.linkedin.com/in/xxxxxx/', 'https://twitter.com/xxxxxxx');
+(1, 'Le code c\'est bien mais ce n\'est pas tout, dans ma vie il y a aussi :', 'Mes passions', 'A propos', 'Compétences', 'https://github.com/JefDc', 'https://www.linkedin.com/in/jef-de-conti-php/', 'https://twitter.com/DeContiJef');
 
 -- --------------------------------------------------------
 
@@ -106,11 +104,11 @@ CREATE TABLE `intro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `intro`
+-- Contenu de la table `intro`
 --
 
 INSERT INTO `intro` (`id`, `name`, `title`, `sub_title`, `img`) VALUES
-(1, 'xxxxxxxxx', 'xxxxxxxxxx', 'xxxxxxxxxx', '85a96bd37b18653a391dc0c4ee6ed80b-intro.jpeg');
+(1, 'Jef De CONTI', 'Développeur web', 'Php / Symfony', '85a96bd37b18653a391dc0c4ee6ed80b-intro.jpeg');
 
 -- --------------------------------------------------------
 
@@ -125,14 +123,14 @@ CREATE TABLE `mail_admin_setting` (
   `domaine` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail_reception` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name_admin` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `mail_admin_setting`
+-- Contenu de la table `mail_admin_setting`
 --
 
 INSERT INTO `mail_admin_setting` (`id`, `object`, `mail_send`, `domaine`, `mail_reception`, `name_admin`) VALUES
-(1, 'Vous avez un nouveau message', 'contact@xxxxxx.com', 'xxxxx.com', 'xxxxxxx@xxxx.com', 'xxxxxxx');
+(1, 'Vous avez un nouveau message', 'contact@jef-dc.com', 'jef-dc.com', 'de.conti.jf@gmail.com', 'Jef Dc');
 
 -- --------------------------------------------------------
 
@@ -143,10 +141,10 @@ INSERT INTO `mail_admin_setting` (`id`, `object`, `mail_send`, `domaine`, `mail_
 CREATE TABLE `mail_content_admin` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `mail_content_admin`
+-- Contenu de la table `mail_content_admin`
 --
 
 INSERT INTO `mail_content_admin` (`id`, `title`) VALUES
@@ -164,14 +162,14 @@ CREATE TABLE `mail_content_user` (
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `mail_content_user`
+-- Contenu de la table `mail_content_user`
 --
 
 INSERT INTO `mail_content_user` (`id`, `title`, `content`, `img`, `link`) VALUES
-(1, 'Merci de m\'avoir contacté !', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'xxxx-img.png', 'xxxxx.com');
+(1, 'Merci de m\'avoir contacté !', 'Ce portfolio a était réalisé par mes soins, en quelques jours. C\'est un site vitrine qui montre une partie de mon savoir-faire acquis en tout juste 5 mois de formation. \r\nJe suis disponible pour un stage d\'une durée de 4 mois afin d\'achever mon cursus et monter en compétences. \r\nJe vous re-contacts au plus tôt.\r\nBonne journée.', '1f6aa50cbcbb4f2dbc61e5d183967c88-img.png', 'jef-dc.com');
 
 -- --------------------------------------------------------
 
@@ -186,14 +184,14 @@ CREATE TABLE `mail_setting` (
   `encryption` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `mail_setting`
+-- Contenu de la table `mail_setting`
 --
 
 INSERT INTO `mail_setting` (`id`, `host`, `port`, `encryption`, `username`, `password`) VALUES
-(1, 'xxx.xxxx.fr', 587, 'tls', 'contact@xxx.com', 'xxxxxxxxxx');
+(1, 'smtp.ionos.fr', 25, 'tls', 'contact@jef-dc.com', 'mAc&BellaDc81');
 
 -- --------------------------------------------------------
 
@@ -206,14 +204,14 @@ CREATE TABLE `mail_user_setting` (
   `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `mail_send` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `domaine` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `mail_user_setting`
+-- Contenu de la table `mail_user_setting`
 --
 
 INSERT INTO `mail_user_setting` (`id`, `subject`, `mail_send`, `domaine`) VALUES
-(1, 'Merci de votre intérêt !', 'contact@xxx.com', 'xxxxx.com');
+(1, 'Merci de votre intérêt !', 'contact@jef-dc.com', 'jef-dc.com');
 
 -- --------------------------------------------------------
 
@@ -230,11 +228,47 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `message`
+-- Contenu de la table `message`
 --
 
 INSERT INTO `message` (`id`, `name`, `email`, `date`, `message`) VALUES
-(10, 'John', 'xxxx@gmail.com', '2019-02-21 12:43:06', 'hello Word !');
+(14, 'FLORENCE', 'florence.sivadier@gmail.com', '2019-02-17 15:15:43', 'Bravo pour le cv original. Je sors de La Loupe ;)\r\nje me permets de t\'écrire pour t\'encourager à corriger les quelques fautes présentes sur cette page :)\r\n\r\n\"Soit vous m\'envoyez directement un mail à l\'adresse ci dessous, ou alors remplissez le formulaire à coté.\"\r\n\r\nbon courage !'),
+(17, 'Sanchez', 'manonsanchez025@gmail.com', '2019-02-20 09:24:35', 'Je voulais voir ce que ça donne quand on remplit le formulaire'),
+(21, 'Jef De conti', 'jefdc05@gmail.com', '2019-02-21 15:33:09', '15h'),
+(26, 'Fontaine Mélanie', 'melanie.fontaine71@gmail.com', '2019-02-21 23:58:29', 'Coucou mon chéri ! Tu es trop fort ! Je t\'aime'),
+(30, 'Jef De conti', 'jefdc05@gmail.com', '2019-03-04 13:24:56', '13H31'),
+(31, 'Jef De conti', 'jefdc05@gmail.com', '2019-03-04 13:59:20', '14H'),
+(32, 'felix Tuff', 'felix.tuffreaud@laposte.net', '2019-03-05 00:04:17', 'eight ball party .  bravo !!\r\nhttps://www.dictionary.com/e/slang/8-ball/\r\nhttps://www.youtube.com/watch?v=YVt6XMCLbE8\r\n\r\nje me demandais de quoi ils parlaient, apparemment de pillave eux.\r\n\r\ntu me diras si tu as bien reçu ce jolie mail.\r\nbonne nuit');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `migration_versions`
+--
+
+CREATE TABLE `migration_versions` (
+  `version` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `executed_at` datetime NOT NULL COMMENT '(DC2Type:datetime_immutable)'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Contenu de la table `migration_versions`
+--
+
+INSERT INTO `migration_versions` (`version`, `executed_at`) VALUES
+('20190206232511', '2019-02-06 23:25:25'),
+('20190208085133', '2019-02-08 08:51:40'),
+('20190208174956', '2019-02-08 17:50:06'),
+('20190209073859', '2019-02-09 07:39:07'),
+('20190209122426', '2019-02-09 12:24:35'),
+('20190211172010', '2019-02-11 17:20:17'),
+('20190212104458', '2019-02-12 10:45:06'),
+('20190212111800', '2019-02-12 11:18:07'),
+('20190212112101', '2019-02-12 11:21:07'),
+('20190212121117', '2019-02-12 12:11:36'),
+('20190212122430', '2019-02-12 12:24:35'),
+('20190212153133', '2019-02-12 15:31:59'),
+('20190213121945', '2019-02-13 12:19:53');
 
 -- --------------------------------------------------------
 
@@ -251,13 +285,13 @@ CREATE TABLE `portfolio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `portfolio`
+-- Contenu de la table `portfolio`
 --
 
 INSERT INTO `portfolio` (`id`, `link`, `img`, `title`, `sub_title`) VALUES
-(2, 'https://google.com', '17b04f07e7c6c74e35c8f5556682941a-portfolio.jpeg', 'Google', '09/18 - 10/18 Google'),
-(3, 'http://google.com', 'f809483ac7402f2c287edcef9c5242c4-portfolio.jpeg', 'Google', '10/18 - 11/18 Google'),
-(5, 'google.fr', '8d36c901ee8e11356b734a5572aa0227-portfolio.jpeg', 'Google', '11/18 - 01/19 Wild Google');
+(2, 'wildcodeschool.github.io/lyon-0918-portfolio/page3.html', '59db8a5f6c7810a9d3a9ec9f1afd1a16-portfolio.jpeg', 'DEvelopers on DEmand', '09/18 - 10/18 Wild Code School'),
+(3, 'blog.fafachena.com/', 'bc884a28e3b383ccb916566071238fd4-portfolio.jpeg', 'Wild Blog', '10/18 - 11/18 Wild Code School'),
+(5, 'www.chapo-clac.fr', 'f8b7cbf5ae7d811b5c3e6411ead59351-portfolio.jpeg', 'Chapo Chac', '11/18 - 01/19 Wild Code School');
 
 -- --------------------------------------------------------
 
@@ -272,7 +306,7 @@ CREATE TABLE `skill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `skill`
+-- Contenu de la table `skill`
 --
 
 INSERT INTO `skill` (`id`, `title`, `img`) VALUES
@@ -283,7 +317,7 @@ INSERT INTO `skill` (`id`, `title`, `img`) VALUES
 (5, 'Git', '705b3c1bdf2cfcf6020dbea2953a20f9-skill.png'),
 (6, 'Html', '6ec020e698c254750225eb5027deb740skill.png'),
 (7, 'Css', '4a6bf4b8eb3921e2c37fe941eb57f50e-skill.png'),
-(9, 'Scrumm', '91d34467423defc46b5caf4a011b43e4-skill.png');
+(9, 'Scrum', '7f83e1e26615d08c50379a1647762280-skill.png');
 
 -- --------------------------------------------------------
 
@@ -299,14 +333,14 @@ CREATE TABLE `soft_skill` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `soft_skill`
+-- Contenu de la table `soft_skill`
 --
 
 INSERT INTO `soft_skill` (`id`, `title`, `content`, `img`) VALUES
-(1, 'Musique', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco', '94c4554301ac08111b3fb5a35f4bebd7-softSkill-png'),
-(2, 'High Tech', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ', 'be7b94f28b8360e74479342e2d2084ae-softSkill-png'),
-(3, 'Jeux video', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure ', '8300e04840284d635fbea63af7e0870f-softSkill.png'),
-(4, 'Apéro', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco ', '50553725b6f1466dd93851857959d978-softSkill.png');
+(1, 'Musique', 'Dj  & passionné depuis plus de 20 ans, organisateur des soirées Eight Ball.', '94c4554301ac08111b3fb5a35f4bebd7-softSkill-png'),
+(2, 'High Tech', 'Passionné par les nouvelles technologies depuis toujours.', 'be7b94f28b8360e74479342e2d2084ae-softSkill-png'),
+(3, 'Jeux video', 'Gamer depuis ma tendre enfance.', '8300e04840284d635fbea63af7e0870f-softSkill.png'),
+(4, 'Apéro', 'Le vendredi soir, c\'est apéro !!!', '50553725b6f1466dd93851857959d978-softSkill.png');
 
 -- --------------------------------------------------------
 
@@ -318,19 +352,19 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roles` json NOT NULL,
+  `roles` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `user`
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`id`, `name`, `password`, `roles`, `img`) VALUES
-(1, 'root', '$2y$13$KeJUwNXUX1PESexz4ifVXeN0tN3E2WMGh6oDnpuZ/9sdvwVKx0riK', '[\"ROLE_ADMIN\"]', 'a5a9e45369a6b6838cf6679205636383-user.jpeg');
+(1, 'JefDcitmix81', '$2y$13$REEpCwJ43uawebtrMVKIGOdEA17OtSRdaPEoRq9bM6kuMkJ9UAl4K', '[\"ROLE_ADMIN\"]', '1162592916e5bb2347a4c62cf224fd14-user.jpeg');
 
 --
--- Index pour les tables déchargées
+-- Index pour les tables exportées
 --
 
 --
@@ -394,6 +428,12 @@ ALTER TABLE `message`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `migration_versions`
+--
+ALTER TABLE `migration_versions`
+  ADD PRIMARY KEY (`version`);
+
+--
 -- Index pour la table `portfolio`
 --
 ALTER TABLE `portfolio`
@@ -418,7 +458,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
@@ -426,86 +466,71 @@ ALTER TABLE `user`
 --
 ALTER TABLE `about_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `contact`
 --
 ALTER TABLE `contact`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `extra`
 --
 ALTER TABLE `extra`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `intro`
 --
 ALTER TABLE `intro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `mail_admin_setting`
 --
 ALTER TABLE `mail_admin_setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `mail_content_admin`
 --
 ALTER TABLE `mail_content_admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `mail_content_user`
 --
 ALTER TABLE `mail_content_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `mail_setting`
 --
 ALTER TABLE `mail_setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `mail_user_setting`
 --
 ALTER TABLE `mail_user_setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT pour la table `message`
 --
 ALTER TABLE `message`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `portfolio`
 --
 ALTER TABLE `portfolio`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT pour la table `skill`
 --
 ALTER TABLE `skill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT pour la table `soft_skill`
 --
 ALTER TABLE `soft_skill`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

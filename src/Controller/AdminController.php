@@ -15,7 +15,7 @@ class AdminController extends AbstractController
     public function index(MessageRepository $messageRepository)
     {
 
-        return $this->render('admin/dashboard/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'messages' => $messageRepository->findBy([], ['id' => 'DESC'])
 
         ]);

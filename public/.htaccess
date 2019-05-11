@@ -7,4 +7,5 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{HTTPS} =on
     RewriteRule . index.php [L]
+    #    RewriteRule (^|/)admin(|$) - [F]
 </IfModule>
